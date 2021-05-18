@@ -1,0 +1,28 @@
+modLoader="javafml" #mandatory
+loaderVersion="[36,)" #mandatory
+license="All rights reserved"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+[[mods]] #mandatory
+modId="woodenutilities" #mandatory
+version="${version}" #mandatory
+displayName="Wooden Utilities" #mandatory
+#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+#logoFile="examplemod.png" #optional
+credits="Thanks people" #optional
+authors="ModernGamingWorld, NovaMachina, LazyMinded" #optional
+description='''
+Wooden Utilities, an all-new Minecraft Mod that adds more Wood-Related items to your daily Minecraft Experience.
+'''
+[[dependencies.woodenutilities]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="${forge_version}" #mandatory
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.woodenutilities]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${mc_version}"
+    ordering="NONE"
+    side="BOTH"
