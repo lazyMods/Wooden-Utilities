@@ -1,7 +1,7 @@
 modLoader="javafml" #mandatory
 loaderVersion="[36,)" #mandatory
 license="All rights reserved"
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+issueTrackerURL="https://github.com/ModernGamingWorlds-Mods/Wooden-Utilities/issues" #optional
 [[mods]] #mandatory
 modId="woodenutilities" #mandatory
 version="${version}" #mandatory
