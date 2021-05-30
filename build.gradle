@@ -46,6 +46,9 @@ dependencies {
             name: 'forge',
             version: "${minecraft_version}-${forge_major}.${forge_minor}.${forge_patch}"
     ])
+
+    testImplementation(platform("org.junit:junit-bom:${junit_version}"))
+    testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
 task replaceResources(type: Copy) {
@@ -168,5 +171,14 @@ publishing {
         maven {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
+    }
+}
+
+tasks.downloadMcpConfig.dependsOn(test)
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
     }
 }

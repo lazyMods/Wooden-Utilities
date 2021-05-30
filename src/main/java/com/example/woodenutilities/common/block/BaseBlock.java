@@ -1,7 +1,6 @@
 package com.example.woodenutilities.common.block;
 
 import com.example.woodenutilities.common.builder.BlockBuilder;
-import jdk.internal.jline.internal.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -11,6 +10,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class BaseBlock extends Block {
