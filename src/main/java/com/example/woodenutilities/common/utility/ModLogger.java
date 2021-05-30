@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 public class ModLogger {
 
     private static final String LOGGING_PATTERN = "{} {}";
-    private static final String PREFIX = "[Ex Nihilo: Sequentia]:";
+    private static final String PREFIX = "[Wooden Utilities]:";
     private final Logger logger;
 
     public ModLogger(Logger logger) {
