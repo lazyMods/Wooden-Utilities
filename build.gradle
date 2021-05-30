@@ -37,7 +37,7 @@ sourceSets {
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
 repositories {
-
+    maven { url 'https://maven.blamejared.com' }
 }
 
 dependencies {
@@ -49,6 +49,9 @@ dependencies {
 
     testImplementation(platform("org.junit:junit-bom:${junit_version}"))
     testImplementation('org.junit.jupiter:junit-jupiter')
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 }
 
 task replaceResources(type: Copy) {
@@ -77,6 +80,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            //This makes the game don't complain about mixin in dev
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 woodenutilities {
