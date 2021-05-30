@@ -1,0 +1,14 @@
+{
+  "book.landing_text": "This is the text that appears on the first page.",
+  "book.name": "Wooden Utilities: Guide",
+  "item.woodenutilities.acacia_plate": "Acacia Plate",
+  "item.woodenutilities.birch_plate": "Birch Plate",
+  "item.woodenutilities.crimson_plate": "Crimson Plate",
+  "item.woodenutilities.dark_oak_plate": "Dark Oak Plate",
+  "item.woodenutilities.jungle_plate": "Jungle Plate",
+  "item.woodenutilities.oak_plate": "Oak Plate",
+  "item.woodenutilities.spruce_plate": "Spruce Plate",
+  "item.woodenutilities.warped_plate": "Warped Plate",
+  "item.woodenutilities.wooden_shears": "Wooden Shears",
+  "itemGroup.woodenutilities": "Wooden Utilities"
+}
