@@ -6,14 +6,10 @@ issueTrackerURL="https://github.com/ModernGamingWorlds-Mods/Wooden-Utilities/iss
 modId="woodenutilities"
 version="${version}"
 displayName="Wooden Utilities"
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
-#logoFile="examplemod.png" #optional
-credits="Thanks people"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/wooden-utilities"
+credits="NovaMachina, LazyMinded, and many others"
 authors="ModernGamingWorld, NovaMachina, LazyMinded"
-description='''
-Wooden Utilities, an all-new Minecraft Mod that adds more Wood-Related items to your daily Minecraft Experience.
-'''
+description='''An all-new Minecraft Mod that adds more Wood-Related items to your daily Minecraft Experience.'''
 [[dependencies.woodenutilities]]
     modId="forge"
     mandatory=true
@@ -25,4 +21,16 @@ Wooden Utilities, an all-new Minecraft Mod that adds more Wood-Related items to 
     mandatory=true
     versionRange="${mc_version}"
     ordering="NONE"
+    side="BOTH"
+[[dependencies.woodenutilities]]
+    modId="crafttweaker"
+    mandatory=false
+    versionRange="${crafttweaker_version}"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.woodenutilities]]
+    modId="jei"
+    mandatory=false
+    versionRange="${jei_version}"
+    ordering="AFTER"
     side="BOTH"
