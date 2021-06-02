@@ -22,15 +22,3 @@ description='''An all-new Minecraft Mod that adds more Wood-Related items to you
     versionRange="${mc_version}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.woodenutilities]]
-    modId="crafttweaker"
-    mandatory=false
-    versionRange="${crafttweaker_version}"
-    ordering="AFTER"
-    side="BOTH"
-[[dependencies.woodenutilities]]
-    modId="jei"
-    mandatory=false
-    versionRange="${jei_version}"
-    ordering="AFTER"
-    side="BOTH"
