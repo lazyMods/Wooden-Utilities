@@ -1,6 +1,7 @@
 package com.example.woodenutilities.common.datagen;
 
 import com.example.woodenutilities.common.init.ModItems;
+import com.example.woodenutilities.common.item.buckets.EnumWoodenBucket;
 import com.example.woodenutilities.common.item.plates.EnumWoodenPlate;
 import net.minecraft.data.*;
 import net.minecraft.tags.ItemTags;
@@ -23,6 +24,7 @@ public class ModRecipeGenerator extends RecipeProvider {
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(consumer);
 
         EnumWoodenPlate.asList().forEach(plate -> plateRecipe(plate, consumer));
+        this.bucketRecipe(EnumWoodenBucket.EMPTY, consumer);
     }
 
     private void plateRecipe(EnumWoodenPlate plate, Consumer<IFinishedRecipe> consumer) {
@@ -32,5 +34,14 @@ public class ModRecipeGenerator extends RecipeProvider {
                 .unlockedBy("has_" + Objects.requireNonNull(plate.getFromMaterial().getRegistryName()).getPath()
                         , has(plate.getFromMaterial()))
                 .save(consumer);
+    }
+
+    private void bucketRecipe(EnumWoodenBucket bucket, Consumer<IFinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(bucket.getItem())
+                .define('#', ItemTags.PLANKS)
+                .pattern("# #")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(consumer);
     }
 }

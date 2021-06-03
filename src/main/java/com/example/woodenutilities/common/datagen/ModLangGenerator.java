@@ -1,6 +1,7 @@
 package com.example.woodenutilities.common.datagen;
 
 import com.example.woodenutilities.common.init.ModItems;
+import com.example.woodenutilities.common.item.buckets.EnumWoodenBucket;
 import com.example.woodenutilities.common.item.plates.EnumWoodenPlate;
 import com.example.woodenutilities.common.utility.ModConstants;
 import net.minecraft.data.DataGenerator;
@@ -20,6 +21,7 @@ public class ModLangGenerator extends LanguageProvider {
         this.add("book.landing_text", "This is the text that appears on the first page.");
 
         EnumWoodenPlate.asList().forEach(plate -> this.add(plate.getRegistryObject().get(), plate.getDisplayName()));
+        EnumWoodenBucket.asList().forEach(bucket -> this.add(bucket.getRegistryObject().get(), bucket.getDisplayName()));
 
         this.add(ModItems.WOODEN_SHEARS.get(), "Wooden Shears");
     }
