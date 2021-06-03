@@ -1,6 +1,7 @@
 package com.example.woodenutilities.common.init;
 
 import com.example.woodenutilities.common.item.WoodenShearsItem;
+import com.example.woodenutilities.common.item.buckets.EnumWoodenBucket;
 import com.example.woodenutilities.common.item.plates.EnumWoodenPlate;
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
@@ -25,6 +26,7 @@ public class ModItems {
         logger.debug("Registry: Items");
 
         EnumWoodenPlate.registerAll(ITEMS);
+        EnumWoodenBucket.registerAll(ITEMS);
 
         ITEMS.register(bus);
     }
