@@ -8,8 +8,6 @@ import java.util.Random;
 
 public class WoodenShearsItem extends ShearsItem {
 
-    //TODO: Should the shears drop the wool
-
     public WoodenShearsItem() {
         super(new Properties().durability(119).tab(ModInit.CREATIVE_TAB));
     }
