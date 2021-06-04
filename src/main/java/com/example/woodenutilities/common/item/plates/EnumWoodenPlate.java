@@ -1,6 +1,5 @@
 package com.example.woodenutilities.common.item.plates;
 
-import com.example.woodenutilities.common.item.WoodenPlateItem;
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
 import net.minecraft.item.Item;
@@ -44,6 +43,10 @@ public enum EnumWoodenPlate {
     public static void registerAll(DeferredRegister<Item> deferredRegister) {
         logger.debug("Registering wooden plates...");
         asList().forEach(plate -> plate.setRegistryObject(deferredRegister.register(plate.getRegistryName(), WoodenPlateItem::new)));
+    }
+
+    public Item getItem(){
+        return this.getRegistryObject().get();
     }
 
     public void setRegistryObject(RegistryObject<Item> registryObject) {

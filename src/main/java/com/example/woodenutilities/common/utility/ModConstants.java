@@ -16,5 +16,8 @@ public class ModConstants {
         public static final String WARPED_PLATE = "warped_plate";
 
         public static final String WOODEN_SHEARS = "wooden_shears";
+        public static final String WOODEN_BUCKET = "wooden_bucket";
+        public static final String WOODEN_BUCKET_LAVA = "lava_wooden_bucket";
+        public static final String WOODEN_BUCKET_WATER = "water_wooden_bucket";
     }
 }

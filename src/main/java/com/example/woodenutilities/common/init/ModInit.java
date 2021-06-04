@@ -1,7 +1,9 @@
 package com.example.woodenutilities.common.init;
 
+import com.example.woodenutilities.common.item.plates.EnumWoodenPlate;
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
+import com.example.woodenutilities.common.utility.ModUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -15,13 +17,7 @@ import javax.annotation.Nonnull;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, modid = ModConstants.MOD_ID)
 public class ModInit {
 
-    public static final ItemGroup CREATIVE_TAB = new ItemGroup(ModConstants.MOD_ID) {
-        @Override
-        @Nonnull
-        public ItemStack makeIcon() {
-            return new ItemStack(Items.APPLE);
-        }
-    };
+    public static final ItemGroup CREATIVE_TAB = ModUtils.createTab(ModConstants.MOD_ID, EnumWoodenPlate.OAK::getItem);
 
     public static final ModLogger logger = new ModLogger(LogManager.getLogger());
 
