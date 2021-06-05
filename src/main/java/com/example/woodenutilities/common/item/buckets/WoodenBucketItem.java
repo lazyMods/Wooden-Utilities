@@ -1,5 +1,6 @@
 package com.example.woodenutilities.common.item.buckets;
 
+import com.example.woodenutilities.WoodenUtilities;
 import com.example.woodenutilities.common.init.ModInit;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockState;
@@ -49,17 +50,17 @@ public class WoodenBucketItem extends BucketItem {
     @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
         if(!world.isClientSide) {
-            if(this.content.getAttributes().getTemperature() >= Fluids.LAVA.getAttributes().getTemperature()) {
+            if(this.content.getAttributes().getTemperature() >= WoodenUtilities.config.woodenBucket.maxTemperature) {
                 if(entity instanceof PlayerEntity) {
                     PlayerEntity playerEntity = (PlayerEntity) entity;
                     if(!hasCooldown){
-                        playerEntity.getCooldowns().addCooldown(this, 50);
+                        playerEntity.getCooldowns().addCooldown(this, WoodenUtilities.config.woodenBucket.destroyTime);
                         hasCooldown = true;
                     }
                     if(!playerEntity.getCooldowns().isOnCooldown(this)) {
                         playerEntity.getCooldowns().removeCooldown(this);
                         stack.shrink(1);
-                        playerEntity.setSecondsOnFire(5);
+                        playerEntity.setSecondsOnFire(WoodenUtilities.config.woodenBucket.fireTime);
                         playerEntity.broadcastBreakEvent(Hand.MAIN_HAND);
                         hasCooldown = false;
                     }
