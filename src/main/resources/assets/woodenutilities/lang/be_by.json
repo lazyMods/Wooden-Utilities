@@ -20,6 +20,6 @@
   "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Колькасць секунд, калі гулец будзе падпалены, калі вядро згарыць само.",
   "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Максімальная тэмпература.",
   "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Максімальная тэмпература, якую можа трымаць драўлянае вядро, пакуль не згарыць.",
-  "text.autoconfig.woodenutilities.title": "Wooden Utilities Configs",
+  "text.autoconfig.woodenutilities.title": "Канфігурацыі драўляных камунальных паслуг",
   "itemGroup.woodenutilities": "Wooden Utilities"
 }
