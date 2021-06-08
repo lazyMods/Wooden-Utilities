@@ -21,5 +21,5 @@
   "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Temperatura massima.",
   "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "La temperatura massima che il secchio di legno può contenere fino a quando non si brucia.",
   "text.autoconfig.woodenutilities.title": "Configurazioni di utilità in legno",
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "itemGroup.woodenutilities": "Utilità in legno"
 }
