@@ -8,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.0.25', changing: true
         classpath group: 'gradle.plugin.se.bjurr.gitchangelog', name: 'git-changelog-gradle-plugin', version: '1.66'
     }
 }
@@ -40,8 +40,12 @@ repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://dvs1.progwml6.com/files/maven/"}
+    maven {
+    url "https://www.cursemaven.com"
+    content {
+        includeGroup 'curse.maven'
+    }
 }
-
 dependencies {
     minecraft([
             group: "net.minecraftforge",
@@ -60,8 +64,10 @@ dependencies {
 
     compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
     runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-}
 
+    compileOnly fg.deobf("curse.maven:jade-api-324717:${jade_api_id}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
+}
 task replaceResources(type: Copy) {
     outputs.upToDateWhen { false }
     from(sourceSets.main.resources.srcDirs) {
@@ -70,14 +76,12 @@ task replaceResources(type: Copy) {
     }
     into "$buildDir/resources/main"
 }
-
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'META-INF/mods.toml'
     }
     finalizedBy replaceResources
 }
-
 minecraft {
     mappings channel: 'official', version: '1.16.5'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
@@ -98,7 +102,6 @@ minecraft {
                 }
             }
         }
-
         server {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
@@ -110,7 +113,6 @@ minecraft {
                 }
             }
         }
-
         data {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
@@ -126,7 +128,6 @@ minecraft {
         }
     }
 }
-
 task makeChangelog(type: GitChangelogTask) {
     file = file('changelog.html')
     untaggedName = "Current Release ${version}"
@@ -135,7 +136,6 @@ task makeChangelog(type: GitChangelogTask) {
     templateContent = file('changelog.mustache').getText('UTF-8')
     fromRepo = file(".")
 }
-
 curseforge {
     apiKey = ENV.CURSEFORGE_KEY ?: '0'
 
@@ -153,11 +153,9 @@ curseforge {
         changelogType = 'html'
     }
 }
-
 afterEvaluate {
     tasks.curseforge409871.dependsOn makeChangelog
 }
-
 jar {
     manifest {
         attributes([
@@ -171,7 +169,6 @@ jar {
         ])
     }
 }
-
 jar.finalizedBy('reobfJar')
 //publish.dependsOn('reobfJar')
 
@@ -187,7 +184,6 @@ publishing {
         }
     }
 }
-
 tasks.downloadMcpConfig.dependsOn(test)
 
 test {
@@ -195,4 +191,5 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+  }
 }
