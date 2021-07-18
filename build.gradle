@@ -47,11 +47,7 @@ repositories {
     }
 }
 dependencies {
-    minecraft([
-            group: "net.minecraftforge",
-            name: 'forge',
-            version: "${minecraft_version}-${forge_major}.${forge_minor}.${forge_patch}"
-    ])
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     testImplementation(platform("org.junit:junit-bom:${junit_version}"))
     testImplementation('org.junit.jupiter:junit-jupiter')
