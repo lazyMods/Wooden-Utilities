@@ -21,8 +21,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 def ENV = System.getenv()
-String semver = "${version_major}.${version_api_major}.${version_api_minor}.${version_patch}"
-version = "${minecraft_release}-${semver}"
+version = "${minecraft_version}-${mod_version}."
 group = "${artifact_group}.${artifact_basename}"
 archivesBaseName = "${artifact_basename}"
 
