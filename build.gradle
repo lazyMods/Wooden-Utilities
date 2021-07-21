@@ -24,6 +24,7 @@ def ENV = System.getenv()
 version = "${minecraft_version}-${mod_version}."
 group = "${artifact_group}.${artifact_basename}"
 archivesBaseName = "${artifact_basename}"
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 sourceSets {
     main {
@@ -32,8 +33,6 @@ sourceSets {
         }
     }
 }
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
 repositories {
     maven { url 'https://maven.blamejared.com' }
@@ -156,9 +155,9 @@ jar {
         attributes([
             "Specification-Title": "Wooden Utilities",
             "Specification-Vendor": "ModernGamingWorld",
-            "Specification-Version": version, // We are version 1 of ourselves
+            "Specification-Version": mod_version,
             "Implementation-Title": project.name,
-            "Implementation-Version": version,
+            "Implementation-Version": mod_version,
             "Implementation-Vendor" :"ModernGamingWorld",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
