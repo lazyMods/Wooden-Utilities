@@ -82,7 +82,6 @@ minecraft {
             //This makes the game don't complain about mixin in dev
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
             mods {woodenutilities {source sourceSets.main}
             }
         }
@@ -90,9 +89,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
-            mods {
-                woodenutilities {source sourceSets.main}
+            mods {woodenutilities {source sourceSets.main}
             }
         }
         data {
