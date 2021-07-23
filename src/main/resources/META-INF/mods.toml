@@ -27,6 +27,6 @@ description='''An all-new Minecraft Mod that adds more Wood-Related items to you
 [[dependencies.woodenutilities]]
     modId="cloth-config"
     mandatory=true
-    versionRange="[4.11.26, )"
+    versionRange="${cloth_config_version}"
     ordering="NONE"
     side="BOTH"
