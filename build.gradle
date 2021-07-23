@@ -166,8 +166,6 @@ tasks.downloadMcpConfig.dependsOn(test)
 
 test {
     useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
-    }
+    testLogging {events "passed", "skipped", "failed"}
   }
 }
