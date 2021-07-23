@@ -83,8 +83,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            mods {
-                woodenutilities {source sourceSets.main}
+            mods {woodenutilities {source sourceSets.main}
             }
         }
         server {
@@ -93,9 +92,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
+                woodenutilities {source sourceSets.main}
             }
         }
         data {
@@ -105,8 +102,7 @@ minecraft {
 
             args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
 
-            mods {
-                woodenutilities {source sourceSets.main}
+            mods {woodenutilities {source sourceSets.main}
             }
         }
     }
@@ -157,9 +153,7 @@ publishing {
         }
     }
     repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
+        maven {url "file:///${project.projectDir}/mcmodsrepo"}
     }
 }
 tasks.downloadMcpConfig.dependsOn(test)
