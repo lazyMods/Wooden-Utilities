@@ -25,13 +25,7 @@ group = "${artifact_group}.${artifact_basename}"
 archivesBaseName = "${artifact_basename}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
-sourceSets {
-    main {
-        resources {
-            srcDir 'generated/resources'
-        }
-    }
-}
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven { url 'https://maven.blamejared.com' }
