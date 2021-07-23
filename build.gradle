@@ -84,9 +84,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
+                woodenutilities {source sourceSets.main}
             }
         }
         server {
@@ -108,9 +106,7 @@ minecraft {
             args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
+                woodenutilities {source sourceSets.main}
             }
         }
     }
@@ -130,7 +126,7 @@ curseforge {
         id = "${curseforge_project}"
         releaseType = 'release'
         mainArtifact jar
-        addGameVersion '1.16.5'
+        addGameVersion '1.17.1'
         changelog = file('changelog.html')
         changelogType = 'html'
     }
