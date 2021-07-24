@@ -2,11 +2,11 @@ package com.example.woodenutilities.common.item.buckets;
 
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 
@@ -15,9 +15,9 @@ import java.util.List;
 
 public enum EnumWoodenBucket {
 
-    EMPTY(ModConstants.Items.WOODEN_BUCKET, "Wooden Bucket", Fluids.EMPTY.getFluid()),
-    LAVA(ModConstants.Items.WOODEN_BUCKET_LAVA, "Lava Wooden Bucket", Fluids.LAVA.getFluid()),
-    WATER(ModConstants.Items.WOODEN_BUCKET_WATER, "Water Wooden Bucket", Fluids.WATER.getFluid());
+    EMPTY(ModConstants.Items.WOODEN_BUCKET, "Wooden Bucket", Fluids.EMPTY),
+    LAVA(ModConstants.Items.WOODEN_BUCKET_LAVA, "Lava Wooden Bucket", Fluids.LAVA),
+    WATER(ModConstants.Items.WOODEN_BUCKET_WATER, "Water Wooden Bucket", Fluids.WATER);
 
     private final String regName;
     private final String displayName;

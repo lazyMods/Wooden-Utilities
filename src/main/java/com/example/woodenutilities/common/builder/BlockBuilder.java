@@ -1,30 +1,30 @@
 package com.example.woodenutilities.common.builder;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.ToolType;
 
 import java.util.function.Supplier;
 
 public class BlockBuilder {
 
-    public static final AbstractBlock.Properties WOODEN_BLOCK = AbstractBlock.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD);
+    public static final BlockBehaviour.Properties WOODEN_BLOCK = BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD);
     private int harvestLevel = 0;
-    private AbstractBlock.Properties properties = WOODEN_BLOCK;
-    private Supplier<TileEntity> tileEntitySupplier;
+    private BlockBehaviour.Properties properties = WOODEN_BLOCK;
+    private Supplier<BlockEntity> tileEntitySupplier;
     private ToolType toolType = ToolType.PICKAXE;
 
     public int getHarvestLevel() {
         return harvestLevel;
     }
 
-    public AbstractBlock.Properties getProperties() {
+    public BlockBehaviour.Properties getProperties() {
         return properties;
     }
 
-    public Supplier<TileEntity> getTileEntitySupplier() {
+    public Supplier<BlockEntity> getTileEntitySupplier() {
         return tileEntitySupplier;
     }
 
@@ -38,12 +38,12 @@ public class BlockBuilder {
         return this;
     }
 
-    public BlockBuilder properties(AbstractBlock.Properties properties) {
+    public BlockBuilder properties(BlockBehaviour.Properties properties) {
         this.properties = properties;
         return this;
     }
 
-    public BlockBuilder tileEntitySupplier(Supplier<TileEntity> supplier) {
+    public BlockBuilder tileEntitySupplier(Supplier<BlockEntity> supplier) {
         this.tileEntitySupplier = supplier;
         return this;
     }

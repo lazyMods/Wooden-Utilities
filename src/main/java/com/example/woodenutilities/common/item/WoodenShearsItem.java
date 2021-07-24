@@ -1,10 +1,12 @@
 package com.example.woodenutilities.common.item;
 
 import com.example.woodenutilities.common.init.ModInit;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShearsItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShearsItem;
 
 import java.util.Random;
+
+import net.minecraft.world.item.Item.Properties;
 
 public class WoodenShearsItem extends ShearsItem {
 

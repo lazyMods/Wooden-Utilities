@@ -3,28 +3,37 @@ package com.example.woodenutilities.common.item.buckets;
 import com.example.woodenutilities.WoodenUtilities;
 import com.example.woodenutilities.common.init.ModInit;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IBucketPickupHandler;
-import net.minecraft.block.ILiquidContainer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BucketItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.BucketPickup;
+import net.minecraft.world.level.block.LiquidBlockContainer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
+
+import net.minecraft.world.item.Item.Properties;
+
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.item.ItemUtils;
 
 public class WoodenBucketItem extends BucketItem {
 
@@ -48,11 +57,11 @@ public class WoodenBucketItem extends BucketItem {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
-        if(!world.isClientSide) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
+        if(!level.isClientSide) {
             if(this.content.getAttributes().getTemperature() >= WoodenUtilities.config.woodenBucket.maxTemperature) {
-                if(entity instanceof PlayerEntity) {
-                    PlayerEntity playerEntity = (PlayerEntity) entity;
+                if(entity instanceof Player) {
+                    Player playerEntity = (Player) entity;
                     if(!hasCooldown){
                         playerEntity.getCooldowns().addCooldown(this, WoodenUtilities.config.woodenBucket.destroyTime);
                         hasCooldown = true;
@@ -61,7 +70,7 @@ public class WoodenBucketItem extends BucketItem {
                         playerEntity.getCooldowns().removeCooldown(this);
                         stack.shrink(1);
                         playerEntity.setSecondsOnFire(WoodenUtilities.config.woodenBucket.fireTime);
-                        playerEntity.broadcastBreakEvent(Hand.MAIN_HAND);
+                        playerEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND);
                         hasCooldown = false;
                     }
                 }
@@ -72,74 +81,73 @@ public class WoodenBucketItem extends BucketItem {
     @Override
     @ParametersAreNonnullByDefault
     @Nonnull
-    public ActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        ItemStack itemstack = playerEntity.getItemInHand(hand);
-        RayTraceResult raytraceresult = getPlayerPOVHitResult(world, playerEntity, this.content == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
-        ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerEntity, world, itemstack, raytraceresult);
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        HitResult raytraceresult = getPlayerPOVHitResult(level, player, this.content == Fluids.EMPTY ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE);
+        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(player, level, itemstack, raytraceresult);
         if(ret != null) return ret;
-        if(raytraceresult.getType() == RayTraceResult.Type.MISS) {
-            return ActionResult.pass(itemstack);
-        } else if(raytraceresult.getType() != RayTraceResult.Type.BLOCK) {
-            return ActionResult.pass(itemstack);
+        if(raytraceresult.getType() == HitResult.Type.MISS) {
+            return InteractionResultHolder.pass(itemstack);
+        } else if(raytraceresult.getType() != HitResult.Type.BLOCK) {
+            return InteractionResultHolder.pass(itemstack);
         } else {
-            BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceresult;
+            BlockHitResult blockraytraceresult = (BlockHitResult) raytraceresult;
             BlockPos blockpos = blockraytraceresult.getBlockPos();
             Direction direction = blockraytraceresult.getDirection();
             BlockPos blockpos1 = blockpos.relative(direction);
-            if(world.mayInteract(playerEntity, blockpos) && playerEntity.mayUseItemAt(blockpos1, direction, itemstack)) {
+            if(level.mayInteract(player, blockpos) && player.mayUseItemAt(blockpos1, direction, itemstack)) {
                 if(this.content == Fluids.EMPTY) {
-                    BlockState blockstate1 = world.getBlockState(blockpos);
-                    if(blockstate1.getBlock() instanceof IBucketPickupHandler) {
-                        Fluid fluid = ((IBucketPickupHandler) blockstate1.getBlock()).takeLiquid(world, blockpos, blockstate1);
+                    BlockState blockstate1 = level.getBlockState(blockpos);
+                    if(blockstate1.getBlock() instanceof BucketPickup) {
+                        Fluid fluid = Fluids.WATER; //((BucketPickup) blockstate1.getBlock()).pickupBlock(level, blockpos, blockstate1); FIXME
                         if(fluid != Fluids.EMPTY) {
-                            playerEntity.awardStat(Stats.ITEM_USED.get(this));
+                            player.awardStat(Stats.ITEM_USED.get(this));
 
                             SoundEvent soundevent = this.content.getAttributes().getFillSound();
                             if(soundevent == null)
                                 soundevent = fluid.is(FluidTags.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
-                            playerEntity.playSound(soundevent, 1.0F, 1.0F);
+                            player.playSound(soundevent, 1.0F, 1.0F);
 
                             ItemStack bucket = EnumWoodenBucket.getBucket(fluid);
 
-                            ItemStack itemstack1 = DrinkHelper.createFilledResult(itemstack, playerEntity, bucket);
-                            if(!world.isClientSide) {
-                                CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) playerEntity, bucket);
+                            ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, player, bucket);
+                            if(!level.isClientSide) {
+                                CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, bucket);
                             }
 
-                            return ActionResult.sidedSuccess(itemstack1, world.isClientSide());
+                            return InteractionResultHolder.sidedSuccess(itemstack1, level.isClientSide());
                         }
                     }
 
-                    return ActionResult.fail(itemstack);
+                    return InteractionResultHolder.fail(itemstack);
                 } else {
-                    BlockState blockstate = world.getBlockState(blockpos);
-                    BlockPos blockpos2 = canBlockContainFluid(world, blockpos, blockstate) ? blockpos : blockpos1;
-                    if(this.emptyBucket(playerEntity, world, blockpos2, blockraytraceresult)) {
-                        this.checkExtraContent(world, itemstack, blockpos2);
-                        if(playerEntity instanceof ServerPlayerEntity) {
-                            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity) playerEntity, blockpos2, itemstack);
+                    BlockState blockstate = level.getBlockState(blockpos);
+                    BlockPos blockpos2 = canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
+                    if(this.emptyContents(player, level, blockpos2, blockraytraceresult)) {
+                        this.checkExtraContent(player, level, itemstack, blockpos2);
+                        if(player instanceof ServerPlayer) {
+                            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer) player, blockpos2, itemstack);
                         }
 
-                        playerEntity.awardStat(Stats.ITEM_USED.get(this));
-                        return ActionResult.sidedSuccess(this.getEmptySuccessItem(itemstack, playerEntity), world.isClientSide());
+                        player.awardStat(Stats.ITEM_USED.get(this));
+                        return InteractionResultHolder.sidedSuccess(WoodenBucketItem.getEmptySuccessItem(itemstack, player), level.isClientSide());
                     } else {
-                        return ActionResult.fail(itemstack);
+                        return InteractionResultHolder.fail(itemstack);
                     }
                 }
             } else {
-                return ActionResult.fail(itemstack);
+                return InteractionResultHolder.fail(itemstack);
             }
         }
     }
 
-    @Override
     @ParametersAreNonnullByDefault
     @Nonnull
-    protected ItemStack getEmptySuccessItem(ItemStack stack, PlayerEntity playerEntity) {
-        return !playerEntity.abilities.instabuild ? new ItemStack(EnumWoodenBucket.EMPTY.getItem()) : stack;
+    public static ItemStack getEmptySuccessItem(ItemStack stack, Player player) {
+        return !player.getAbilities().instabuild ? new ItemStack(EnumWoodenBucket.EMPTY.getItem()) : stack;
     }
 
-    private boolean canBlockContainFluid(World worldIn, BlockPos posIn, BlockState blockstate) {
-        return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer) blockstate.getBlock()).canPlaceLiquid(worldIn, posIn, blockstate, this.content);
+    private boolean canBlockContainFluid(Level levelIn, BlockPos posIn, BlockState blockstate) {
+        return blockstate.getBlock() instanceof LiquidBlockContainer && ((LiquidBlockContainer) blockstate.getBlock()).canPlaceLiquid(levelIn, posIn, blockstate, this.content);
     }
 }
