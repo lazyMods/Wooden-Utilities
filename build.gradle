@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath group: 'gradle.plugin.se.bjurr.gitchangelog', name: 'git-changelog-gradle-plugin', version: '1.66'
     }
 }
@@ -23,7 +23,9 @@ def ENV = System.getenv()
 version = "${minecraft_version}-${mod_version}."
 group = "${artifact_group}.${artifact_basename}"
 archivesBaseName = "${artifact_basename}"
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+println('Mod: ' + archivesBaseName + ' Group: ' + group + ' Version: ' + version)
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
@@ -32,146 +34,146 @@ repositories {
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://dvs1.progwml6.com/files/maven/"}
     maven {
-    url "https://www.cursemaven.com"
-    content {
-        includeGroup 'curse.maven'
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup 'curse.maven'
+        }
     }
-}
-dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    dependencies {
+        minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    testImplementation(platform("org.junit:junit-bom:${junit_version}"))
-    testImplementation('org.junit.jupiter:junit-jupiter')
+        testImplementation(platform("org.junit:junit-bom:${junit_version}"))
+        testImplementation('org.junit.jupiter:junit-jupiter')
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
-
-    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-
-    compileOnly fg.deobf("curse.maven:jade-api-324717:${jade_api_id}")
-    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
-}
-task replaceResources(type: Copy) {
-    outputs.upToDateWhen { false }
-    from(sourceSets.main.resources.srcDirs) {
-        include 'META-INF/mods.toml'
-        expand 'version': version, 'mc_version': minecraft_version_range, 'forge_version': forge_version_range
+//    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+//    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+//
+//    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
+//    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
+//
+//    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
+//    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
+//
+//    compileOnly fg.deobf("curse.maven:jade-api-324717:${jade_api_id}")
+//    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
     }
-    into "$buildDir/resources/main"
-}
-processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'META-INF/mods.toml'
+    task replaceResources(type: Copy) {
+        outputs.upToDateWhen { false }
+        from(sourceSets.main.resources.srcDirs) {
+            include 'META-INF/mods.toml'
+            expand 'version': version, 'mc_version': minecraft_version_range, 'forge_version': forge_version_range
+        }
+        into "$buildDir/resources/main"
     }
-    finalizedBy replaceResources
-}
-minecraft {
-    mappings channel: 'official', version: '1.16.5'
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    processResources {
+        from(sourceSets.main.resources.srcDirs) {
+            exclude 'META-INF/mods.toml'
+        }
+        finalizedBy replaceResources
+    }
+    minecraft {
+        mappings channel: 'official', version: '1.17.1'
+        // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+        // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            //This makes the game don't complain about mixin in dev
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        runs {
+            client {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'REGISTRIES'
+                property 'forge.logging.console.level', 'debug'
+                //This makes the game don't complain about mixin in dev
+                property 'mixin.env.remapRefMap', 'true'
+                property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            mods {
-                woodenutilities {
-                    source sourceSets.main
+                mods {
+                    woodenutilities {
+                        source sourceSets.main
+                    }
+                }
+            }
+            server {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'REGISTRIES'
+                property 'forge.logging.console.level', 'debug'
+
+                mods {
+                    woodenutilities {
+                        source sourceSets.main
+                    }
+                }
+            }
+            data {
+                workingDirectory project.file('run')
+                property 'forge.logging.markers', 'REGISTRIES'
+                property 'forge.logging.console.level', 'debug'
+
+                args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
+
+                mods {
+                    woodenutilities {
+                        source sourceSets.main
+                    }
                 }
             }
         }
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
+    }
+    task makeChangelog(type: GitChangelogTask) {
+        file = file('changelog.html')
+        untaggedName = "Current Release ${version}"
+        fromCommit = "21744dcfb84df9127fade2ace24e05114f00b3a9"
+        toRef = 'HEAD'
+        templateContent = file('changelog.mustache').getText('UTF-8')
+        fromRepo = file(".")
+    }
+    curseforge {
+        apiKey = ENV.CURSEFORGE_KEY ?: '0'
 
-            mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
-            }
-        }
-        data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
-            }
+        project {
+            id = "${curseforge_project}"
+            releaseType = 'release'
+            mainArtifact jar
+            addGameVersion '1.16.5'
+            changelog = file('changelog.html')
+            changelogType = 'html'
         }
     }
-}
-task makeChangelog(type: GitChangelogTask) {
-    file = file('changelog.html')
-    untaggedName = "Current Release ${version}"
-    fromCommit = "21744dcfb84df9127fade2ace24e05114f00b3a9"
-    toRef = 'HEAD'
-    templateContent = file('changelog.mustache').getText('UTF-8')
-    fromRepo = file(".")
-}
-curseforge {
-    apiKey = ENV.CURSEFORGE_KEY ?: '0'
-
-    project {
-        id = "${curseforge_project}"
-        releaseType = 'release'
-        mainArtifact jar
-        addGameVersion '1.16.5'
-        changelog = file('changelog.html')
-        changelogType = 'html'
+    afterEvaluate {
+        tasks.curseforge409871.dependsOn makeChangelog
     }
-}
-afterEvaluate {
-    tasks.curseforge409871.dependsOn makeChangelog
-}
-jar {
-    manifest {
-        attributes([
-            "Specification-Title": "Wooden Utilities",
-            "Specification-Vendor": "ModernGamingWorld",
-            "Specification-Version": mod_version,
-            "Implementation-Title": project.name,
-            "Implementation-Version": mod_version,
-            "Implementation-Vendor" :"ModernGamingWorld",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+    jar {
+        manifest {
+            attributes([
+                    "Specification-Title": "Wooden Utilities",
+                    "Specification-Vendor": "ModernGamingWorld",
+                    "Specification-Version": mod_version,
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": mod_version,
+                    "Implementation-Vendor" :"ModernGamingWorld",
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
+        }
     }
-}
-jar.finalizedBy('reobfJar')
+    jar.finalizedBy('reobfJar')
 //publish.dependsOn('reobfJar')
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact jar
+            }
+        }
+        repositories {
+            maven {
+                url "file:///${project.projectDir}/mcmodsrepo"
+            }
         }
     }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
-tasks.downloadMcpConfig.dependsOn(test)
+    tasks.downloadMcpConfig.dependsOn(test)
 
-test {
-    useJUnitPlatform()
-    testLogging {
-        events "passed", "skipped", "failed"
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
     }
-  }
 }

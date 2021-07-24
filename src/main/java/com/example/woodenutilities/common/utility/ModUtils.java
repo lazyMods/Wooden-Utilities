@@ -1,12 +1,12 @@
 package com.example.woodenutilities.common.utility;
 
-import com.example.woodenutilities.common.config.ModConfig;
-import me.shedaniel.autoconfig.AutoConfig;
+//import com.example.woodenutilities.common.config.ModConfig;
+//import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -16,8 +16,8 @@ import java.util.function.Supplier;
 
 public class ModUtils {
 
-    public static ItemGroup createTab(String id, Supplier<Item> icon) {
-        return new ItemGroup(id) {
+    public static CreativeModeTab createTab(String id, Supplier<Item> icon) {
+        return new CreativeModeTab(id) {
             @Override
             @Nonnull
             @OnlyIn(Dist.CLIENT)
@@ -27,7 +27,7 @@ public class ModUtils {
         };
     }
 
-    public static BiFunction<Minecraft, Screen, Screen> createConfigScreen() {
-        return (client, parent) -> AutoConfig.getConfigScreen(ModConfig.class, parent).get();
-    }
+//    public static BiFunction<Minecraft, Screen, Screen> createConfigScreen() {
+//        return (client, parent) -> AutoConfig.getConfigScreen(ModConfig.class, parent).get();
+//    }
 }
