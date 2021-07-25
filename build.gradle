@@ -29,6 +29,8 @@ println('Mod: ' + archivesBaseName + ' Group: ' + group + ' Version: ' + version
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+processResources.setDuplicatesStrategy(DuplicatesStrategy.WARN)
+
 repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url "https://maven.shedaniel.me/" }
