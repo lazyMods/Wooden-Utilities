@@ -59,17 +59,20 @@ public class WoodenBucketItem extends BucketItem {
     @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if(!level.isClientSide) {
-            if(this.content.getAttributes().getTemperature() >= WoodenUtilities.config.woodenBucket.maxTemperature) {
+            //TODO: Readd config maxTemperature
+            if(this.content.getAttributes().getTemperature() >= 1300) {
                 if(entity instanceof Player) {
                     Player playerEntity = (Player) entity;
                     if(!hasCooldown){
-                        playerEntity.getCooldowns().addCooldown(this, WoodenUtilities.config.woodenBucket.destroyTime);
+                        //TODO: Readd config destroyTime
+                        playerEntity.getCooldowns().addCooldown(this, 50);
                         hasCooldown = true;
                     }
                     if(!playerEntity.getCooldowns().isOnCooldown(this)) {
                         playerEntity.getCooldowns().removeCooldown(this);
                         stack.shrink(1);
-                        playerEntity.setSecondsOnFire(WoodenUtilities.config.woodenBucket.fireTime);
+                        //TODO: Readd config fireTime
+                        playerEntity.setSecondsOnFire(5);
                         playerEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND);
                         hasCooldown = false;
                     }
@@ -99,16 +102,16 @@ public class WoodenBucketItem extends BucketItem {
                 if(this.content == Fluids.EMPTY) {
                     BlockState blockstate1 = level.getBlockState(blockpos);
                     if(blockstate1.getBlock() instanceof BucketPickup) {
-                        Fluid fluid = Fluids.WATER; //((BucketPickup) blockstate1.getBlock()).pickupBlock(level, blockpos, blockstate1); FIXME
-                        if(fluid != Fluids.EMPTY) {
+                        BucketPickup bucketPickup = (BucketPickup) blockstate1.getBlock();
+                        ItemStack fluidStack = bucketPickup.pickupBlock(level, blockpos, blockstate1);
+                        if(!fluidStack.isEmpty()) {
                             player.awardStat(Stats.ITEM_USED.get(this));
 
-                            SoundEvent soundevent = this.content.getAttributes().getFillSound();
-                            if(soundevent == null)
-                                soundevent = fluid.is(FluidTags.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
-                            player.playSound(soundevent, 1.0F, 1.0F);
+                            bucketPickup.getPickupSound().ifPresent((p_150709_) -> {
+                                player.playSound(p_150709_, 1.0F, 1.0F);
+                            });
 
-                            ItemStack bucket = EnumWoodenBucket.getBucket(fluid);
+                            ItemStack bucket = EnumWoodenBucket.getBucket(((BucketItem)fluidStack.getItem()).getFluid());
 
                             ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, player, bucket);
                             if(!level.isClientSide) {
