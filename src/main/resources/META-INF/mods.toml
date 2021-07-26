@@ -1,27 +1,30 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[37,)"
 license="MIT"
 issueTrackerURL="https://github.com/ModernGamingWorlds-Mods/Wooden-Utilities/issues"
 
 [[mods]]
 modId="woodenutilities"
-version="${version}"
+#Temp
+version="1.0.0.0"
 displayName="Wooden Utilities"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/wooden-utilities"
 credits="NovaMachina, LazyMinded, and many others"
 authors="ModernGamingWorld, NovaMachina, LazyMinded"
 description='''An all-new Minecraft Mod that adds more Wood-Related items to your daily Minecraft Experience.'''
 
+#Temp
+
 [[dependencies.woodenutilities]]
     modId="forge"
     mandatory=true
-    versionRange="${forge_version}"
+    versionRange="[37,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.woodenutilities]]
     modId="minecraft"
     mandatory=true
-    versionRange="${mc_version}"
+    versionRange="1.17.1"
     ordering="NONE"
     side="BOTH"
 #[[dependencies.woodenutilities]]
