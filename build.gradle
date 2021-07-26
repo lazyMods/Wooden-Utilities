@@ -55,7 +55,7 @@ repositories {
 //    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
 //
     compileOnly fg.deobf("curse.maven:jade-api-3400050:${jade_api_id}")
-    runtimeOnly fg.deobf("curse.maven:jade-3400050:${jade_id}")
+//    runtimeOnly fg.deobf("curse.maven:jade-3400050:${jade_id}")
     }
     task replaceResources(type: Copy) {
         outputs.upToDateWhen { false }
