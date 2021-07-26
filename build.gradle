@@ -11,23 +11,27 @@ buildscript {
         classpath group: 'gradle.plugin.se.bjurr.gitchangelog', name: 'git-changelog-gradle-plugin', version: '1.66'
     }
 }
+
 plugins {
     id 'java'
     id 'idea'
     id 'maven-publish'
     id 'com.matthewprenger.cursegradle' version '1.4.0'
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 
 def ENV = System.getenv()
+
 version = "${minecraft_version}-${mod_version}."
 group = "${artifact_group}.${artifact_basename}"
 archivesBaseName = "${artifact_basename}"
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 println('Mod: ' + archivesBaseName + ' Group: ' + group + ' Version: ' + version)
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+//sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven { url 'https://maven.blamejared.com' }
@@ -57,7 +61,7 @@ repositories {
     compileOnly fg.deobf("curse.maven:jade-api-3400050:${jade_api_id}")
 //    runtimeOnly fg.deobf("curse.maven:jade-3400050:${jade_id}")
     }
-    task replaceResources(type: Copy) {
+    /*task replaceResources(type: Copy) {
         outputs.upToDateWhen { false }
         from(sourceSets.main.resources.srcDirs) {
             include 'META-INF/mods.toml'
@@ -71,7 +75,7 @@ repositories {
             exclude 'META-INF/mods.toml'
         }
         finalizedBy replaceResources
-    }
+    }*/
     minecraft {
         mappings channel: 'official', version: '1.17.1'
         // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
