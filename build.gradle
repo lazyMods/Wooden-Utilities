@@ -98,7 +98,8 @@ repositories {
             }
             server {
                 workingDirectory project.file('run')
-                property 'forge.logging.markers', 'REGISTRIES'
+                // Recommended logging data for a userdev environment
+                property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
                 property 'forge.logging.console.level', 'debug'
 
                 mods {
@@ -109,7 +110,8 @@ repositories {
             }
             data {
                 workingDirectory project.file('run')
-                property 'forge.logging.markers', 'REGISTRIES'
+                // Recommended logging data for a userdev environment
+                property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
                 property 'forge.logging.console.level', 'debug'
 
                 args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
