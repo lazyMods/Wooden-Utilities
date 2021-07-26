@@ -45,7 +45,7 @@ public enum EnumWoodenPlate {
         asList().forEach(plate -> plate.setRegistryObject(deferredRegister.register(plate.getRegistryName(), WoodenPlateItem::new)));
     }
 
-    public Item getItem(){
+    public Item getItem() {
         return this.getRegistryObject().get();
     }
 

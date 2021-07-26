@@ -6,8 +6,6 @@ import net.minecraft.world.item.ShearsItem;
 
 import java.util.Random;
 
-import net.minecraft.world.item.Item.Properties;
-
 public class WoodenShearsItem extends ShearsItem {
 
     public WoodenShearsItem() {
@@ -16,8 +14,8 @@ public class WoodenShearsItem extends ShearsItem {
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-        ItemStack inContainer = itemStack.copy();
-        if(inContainer.hurt(1, new Random(), null)) return ItemStack.EMPTY;
+        var inContainer = itemStack.copy();
+        if (inContainer.hurt(1, new Random(), null)) return ItemStack.EMPTY;
         else return inContainer;
     }
 

@@ -2,10 +2,10 @@ package com.example.woodenutilities.common.item.buckets;
 
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
@@ -42,7 +42,7 @@ public enum EnumWoodenBucket {
         return Arrays.asList(values());
     }
 
-    public static ItemStack getBucket(Fluid fluid){
+    public static ItemStack getBucket(Fluid fluid) {
         return asList().stream()
                 .filter(bucket -> bucket.getFluid().isSame(fluid))
                 .map(bucket -> new ItemStack(bucket.getItem()))
