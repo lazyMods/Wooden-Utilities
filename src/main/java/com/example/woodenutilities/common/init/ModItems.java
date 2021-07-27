@@ -5,6 +5,7 @@ import com.example.woodenutilities.common.item.buckets.EnumWoodenBucket;
 import com.example.woodenutilities.common.item.plates.EnumWoodenPlate;
 import com.example.woodenutilities.common.utility.ModConstants;
 import com.example.woodenutilities.common.utility.ModLogger;
+import com.example.woodenutilities.common.utility.ModUtils;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -20,6 +21,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> WOODEN_SHEARS = ITEMS.register(
             ModConstants.Items.WOODEN_SHEARS, WoodenShearsItem::new
+    );
+
+    public static final RegistryObject<Item> WOODEN_DIAMOND = ITEMS.register(
+            ModConstants.Items.WOODEN_DIAMOND, ModUtils::createBasicItem
     );
 
     public static void init(IEventBus bus) {

@@ -26,6 +26,7 @@ public class ModLangGenerator extends LanguageProvider {
         EnumWoodenBucket.asList().forEach(bucket -> this.add(bucket.getRegistryObject().get(), bucket.getDisplayName()));
 
         this.add(ModItems.WOODEN_SHEARS.get(), "Wooden Shears");
+        this.add(ModItems.WOODEN_DIAMOND.get(), "Wooden Diamond");
     }
 
     private void addConfigScreenTranslations(){

@@ -19,5 +19,6 @@ public class ModConstants {
         public static final String WOODEN_BUCKET = "wooden_bucket";
         public static final String WOODEN_BUCKET_LAVA = "lava_wooden_bucket";
         public static final String WOODEN_BUCKET_WATER = "water_wooden_bucket";
+        public static final String WOODEN_DIAMOND = "wooden_diamond";
     }
 }
