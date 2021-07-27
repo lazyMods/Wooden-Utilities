@@ -5,26 +5,23 @@ issueTrackerURL="https://github.com/ModernGamingWorlds-Mods/Wooden-Utilities/iss
 
 [[mods]]
 modId="woodenutilities"
-#Temp
-version="1.0.0.0"
+version="${version}"
 displayName="Wooden Utilities"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/wooden-utilities"
 credits="NovaMachina, LazyMinded, and many others"
 authors="ModernGamingWorld, NovaMachina, LazyMinded"
 description='''An all-new Minecraft Mod that adds more Wood-Related items to your daily Minecraft Experience.'''
 
-#Temp
-
 [[dependencies.woodenutilities]]
     modId="forge"
     mandatory=true
-    versionRange="[37,)"
+    versionRange="${forge_version}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.woodenutilities]]
     modId="minecraft"
     mandatory=true
-    versionRange="1.17.1"
+    versionRange="${mc_version}"
     ordering="NONE"
     side="BOTH"
 #[[dependencies.woodenutilities]]

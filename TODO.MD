@@ -1,8 +1,10 @@
 # TODOS:
 
-* [ ] Fix gradle not picking generated resources.
+* [x] Fix gradle not picking generated resources.
 * [ ] Reimplement:
     * [ ] JEI
     * [ ] Cloth
+    * [x] Jade
+    * [x] TOP
 * [ ] Wait on Forge to fix the bucket model loader
-* [ ] Fix the mods.toml hardcoded versions.
+* [x] Fix the mods.toml hardcoded versions.
