@@ -43,6 +43,9 @@ repositories {
             includeGroup 'curse.maven'
         }
     }
+    configurations {
+        runtimeMod { transitive = false }
+    }
     dependencies {
         minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
@@ -57,9 +60,39 @@ repositories {
 //
 //    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
 //    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-//
-    compileOnly fg.deobf("curse.maven:jade-api-3400050:${jade_api_id}")
-//    runtimeOnly fg.deobf("curse.maven:jade-3400050:${jade_id}")
+
+        compileOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
+        runtimeMod fg.deobf("curse.maven:the-one-probe-245211:3402482")
+
+        compileOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
+        runtimeMod fg.deobf("curse.maven:jade-324717:${jade_id}")
+}
+
+// https://github.com/Crimix/ServerTabInfo/blob/a297661ae5d40e082aecf3598d8467cfbef8e6d6/build.gradle
+    project.afterEvaluate {
+        task copyMods {
+            doLast {
+                delete fileTree('run/mods') {
+                    include '*.jar'
+                }
+                delete fileTree('run/server/mods') {
+                    include '*.jar'
+                }
+                copy {
+                    from configurations.runtimeMod.files
+                    into file("run/mods")
+                }
+                copy {
+                    from configurations.runtimeMod.files
+                    into file("run/server/mods")
+                }
+            }
+        }
+
+        tasks.forEach {
+            if (it.name.startsWith("prepareRun"))
+                it.dependsOn copyMods
+        }
     }
     /*task replaceResources(type: Copy) {
         outputs.upToDateWhen { false }
