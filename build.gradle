@@ -33,10 +33,6 @@ println('Mod: ' + archivesBaseName + ' Group: ' + group + ' Version: ' + version
 
 sourceSets.main.resources { srcDir 'generated/resources' }
 
-configurations {
-    runtimeMod { transitive = false }
-}
-
 repositories {
     maven { url "https://maven.blamejared.com" }
     maven { url "https://maven.shedaniel.me/" }
@@ -66,40 +62,13 @@ dependencies {
     //runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
 
     compileOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
-    runtimeMod fg.deobf("curse.maven:the-one-probe-245211:3402482")
+    runtimeOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
 
     compileOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
-    runtimeMod fg.deobf("curse.maven:jade-324717:${jade_id}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
 
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.17.1-5.0.0.0")
-    runtimeMod fg.deobf("top.theillusivec4.curios:curios-forge:1.17.1-5.0.0.0")
-}
-
-// https://github.com/Crimix/ServerTabInfo/blob/a297661ae5d40e082aecf3598d8467cfbef8e6d6/build.gradle
-project.afterEvaluate {
-    task copyMods {
-        doLast {
-            delete fileTree('run/mods') {
-                include '*.jar'
-            }
-            delete fileTree('run/server/mods') {
-                include '*.jar'
-            }
-            copy {
-                from configurations.runtimeMod.files
-                into file("run/mods")
-            }
-            copy {
-                from configurations.runtimeMod.files
-                into file("run/server/mods")
-            }
-        }
-    }
-
-    tasks.forEach {
-        if (it.name.startsWith("prepareRun"))
-            it.dependsOn copyMods
-    }
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.17.1-5.0.0.0")
 }
 
 task replaceResources(type: Copy) {
