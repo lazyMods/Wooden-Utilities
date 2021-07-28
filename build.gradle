@@ -38,8 +38,9 @@ configurations {
 }
 
 repositories {
-    maven { url 'https://maven.blamejared.com' }
+    maven { url "https://maven.blamejared.com" }
     maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.theillusivec4.top/" }
     maven { url "https://dvs1.progwml6.com/files/maven/" }
     maven {
         url "https://www.cursemaven.com"
@@ -69,6 +70,9 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
     runtimeMod fg.deobf("curse.maven:jade-324717:${jade_id}")
+
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.17.1-5.0.0.0")
+    runtimeMod fg.deobf("top.theillusivec4.curios:curios-forge:1.17.1-5.0.0.0")
 }
 
 // https://github.com/Crimix/ServerTabInfo/blob/a297661ae5d40e082aecf3598d8467cfbef8e6d6/build.gradle
