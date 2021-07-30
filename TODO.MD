@@ -12,5 +12,6 @@
 * [ ] Add Back Wooden Furnace with The Chance to light things on fire like before(Add Config Options to disable Furnace setting things on Fire)
 * [ ] Add Back Wooden Armor & Horse Armor
 * [ ] Add Wooden Coins(Will have Modded Wood type support as Mods update)
-* [ ] Implement Giving Players Mining Fatigue if they chop Wood with their hands
+* [x] Implement Giving Players Mining Fatigue if they chop Wood with their hands
+    * Configs: Chance and maybe duration.
 * [ ] Re add Wooden TNT Block
