@@ -24,9 +24,7 @@ public class ModItemGenerator extends ItemModelProvider {
     @Override
     protected void registerModels() {
         EnumWoodenPlate.asList().forEach(plate -> this.handheldZeroLayeredModel(plate.getRegistryName()));
-
-        //TODO: Enable when Forge Bucket Model Loader is fixed
-        //EnumWoodenBucket.asList().forEach(bucket -> this.forgeBucket(bucket.getRegistryName(), bucket.getFluid()));
+        EnumWoodenBucket.asList().forEach(bucket -> this.forgeBucket(bucket.getRegistryName(), bucket.getFluid()));
 
         this.handheldZeroLayeredModel(ModConstants.Items.WOODEN_SHEARS);
         this.handheldZeroLayeredModel(ModConstants.Items.WOODEN_DIAMOND);
