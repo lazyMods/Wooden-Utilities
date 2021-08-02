@@ -1,9 +1,11 @@
 package com.example.woodenutilities.common.utility;
 
 import com.example.woodenutilities.common.init.ModInit;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -25,6 +27,10 @@ public class ModUtils {
 
     public static Item createBasicItem() {
         return new Item(new Item.Properties().tab(ModInit.CREATIVE_TAB));
+    }
+
+    public static BlockItem createBasicBlockItem(Block block){
+        return new BlockItem(block, new Item.Properties().tab(ModInit.CREATIVE_TAB));
     }
 
     /*public static BiFunction<Minecraft, Screen, Screen> createConfigScreen() {
