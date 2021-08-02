@@ -15,3 +15,8 @@
 * [x] Implement Giving Players Mining Fatigue if they chop Wood with their hands
     * Configs: Chance and maybe duration.
 * [ ] Re add Wooden TNT Block
+
+* [ ] Crafting slab:
+    * Add double slab state.
+    * Waterlogged support.
+    * Translation.
