@@ -50,7 +50,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     testImplementation(platform("org.junit:junit-bom:${junit_version}"))
-    testImplementation('org.junit.jupiter:junit-jupiter')
+    //testImplementation('org.junit.jupiter:junit-jupiter')
 
     //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
@@ -135,7 +135,7 @@ minecraft {
 }
 
 task makeChangelog(type: GitChangelogTask) {
-    file = file('changelog.html')
+    file = file('changelog.md')
     untaggedName = "Current Release ${version}"
     fromCommit = "21744dcfb84df9127fade2ace24e05114f00b3a9"
     toRef = 'HEAD'
@@ -148,11 +148,12 @@ curseforge {
 
     project {
         id = "${curseforge_project}"
+        changelogType = 'markdown'
+        changelog = file('changelog.md')
         releaseType = 'release'
-        mainArtifact jar
-        addGameVersion '1.16.5'
-        changelog = file('changelog.html')
-        changelogType = 'html'
+        addGameVersion minecraft_version_range
+        addGameVersion 'Forge'
+        addGameVersion 'Java 16'
     }
 }
 
