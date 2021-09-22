@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/ModernGamingWorlds-Mods/Wooden-Utilities/iss
 
 [[mods]]
 modId="woodenutilities"
-version="${version}"
+version="${file.jarVersion}"
 displayName="Wooden Utilities"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/wooden-utilities"
 credits="NovaMachina, LazyMinded, and many others"
