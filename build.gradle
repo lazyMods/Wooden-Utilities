@@ -7,19 +7,17 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath group: 'gradle.plugin.se.bjurr.gitchangelog', name: 'git-changelog-gradle-plugin', version: '1.66'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-
-version = "${mod_version}"
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+//----------------------------------------------------------------------------------------------------------------------
+version = '${mod_version}'
 group = '${artifact_group}.${artifact_basename}'
 archivesBaseName = '${artifact_basename}'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -99,16 +97,14 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 }
 
-
-
 jar {
     manifest {
         attributes([
                 "Specification-Title"     : "Wooden Utilities",
                 "Specification-Vendor"    : "ModernGamingWorld",
-                "Specification-Version"   : "mod_version",
+                "Specification-Version"   : "${mod_version}",
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : "${version}",
+                "Implementation-Version"  : mod_version,
                 "Implementation-Vendor"   : "ModernGamingWorld",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
@@ -118,14 +114,6 @@ jar {
 jar.finalizedBy('reobfJar')
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
+    publications { mavenJava(MavenPublication) { artifact jar } }
+    repositories { maven { url "file:///${project.projectDir}/mcmodsrepo" } }
 }
