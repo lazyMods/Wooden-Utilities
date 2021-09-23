@@ -98,6 +98,9 @@ dependencies {
 
     compileOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
     runtimeOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
+
+    compileOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
 }
 
 jar {
