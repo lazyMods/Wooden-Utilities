@@ -1,26 +1,22 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.config;
 
-//import me.shedaniel.autoconfig.ConfigData;
-//import me.shedaniel.autoconfig.annotation.Config;
-//import me.shedaniel.autoconfig.annotation.ConfigEntry;
-//
-//import static me.shedaniel.autoconfig.annotation.ConfigEntry.*;
-//
-//import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui;
+import io.github.noeppi_noeppi.libx.annotation.config.RegisterConfig;
+import io.github.noeppi_noeppi.libx.config.Config;
+import io.github.noeppi_noeppi.libx.config.Group;
 
-//@Config(name = ModConstants.MOD_ID)
-public class ModConfig /*implements ConfigData*/ {
+@RegisterConfig
+public class ModConfig {
 
-//    @Gui.CollapsibleObject
-    public WoodenBucket woodenBucket = new WoodenBucket();
-
+    @Group
     public static class WoodenBucket {
 
-//        @Gui.Tooltip
-        public int destroyTime = 50;
-//        @Gui.Tooltip
-        public int maxTemperature = 1300;
-//        @Gui.Tooltip
-        public int fireTime = 5;
+        @Config
+        public static int destroyTime = 50;
+
+        @Config
+        public static int maxTemperature = 1300;
+
+        @Config
+        public static int fireTime = 5;
     }
 }
