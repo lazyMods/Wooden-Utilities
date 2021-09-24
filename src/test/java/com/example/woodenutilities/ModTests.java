@@ -1,6 +1,6 @@
 package com.example.woodenutilities;
 
-import com.example.woodenutilities.common.utility.ModConstants;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModConstants;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
