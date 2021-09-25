@@ -15,18 +15,20 @@ description='''An all-new Minecraft Mod that adds more Wood-Related items to you
 [[dependencies.woodenutilities]]
     modId="forge"
     mandatory=true
-    versionRange="${forge_version}"
+    versionRange="[37,)"
     ordering="NONE"
     side="BOTH"
+
 [[dependencies.woodenutilities]]
     modId="minecraft"
     mandatory=true
-    versionRange="${mc_version}"
+    versionRange="[1.17.1, 1.18)"
     ordering="NONE"
     side="BOTH"
-#[[dependencies.woodenutilities]]
-#    modId="cloth-config"
-#    mandatory=true
-#    versionRange="[4.11.26, )"
-#    ordering="NONE"
-#    side="BOTH"
+
+[[dependencies.woodenutilities]]
+   modId="libx"
+   mandatory=true
+   versionRange="[1.17.1-2.0.19,)"
+   ordering="NONE"
+   side="BOTH"
