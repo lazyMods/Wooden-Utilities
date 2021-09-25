@@ -14,22 +14,22 @@ public class ModLogger {
 
     public void debug(String msg) {
         //TODO: Create config that enables or disables debug messages.
-        logger.info(LOGGING_PATTERN, PREFIX, msg);
+        this.logger.info(LOGGING_PATTERN, PREFIX, msg);
     }
 
     public void error(String msg) {
-        logger.error(LOGGING_PATTERN, PREFIX, msg);
+        this.logger.error(LOGGING_PATTERN, PREFIX, msg);
     }
 
     public void info(String msg) {
-        logger.info(LOGGING_PATTERN, PREFIX, msg);
+        this.logger.info(LOGGING_PATTERN, PREFIX, msg);
     }
 
     public void info(int num) {
-        info(String.format("%d", num));
+        this.info(String.format("%d", num));
     }
 
     public void warn(String msg) {
-        logger.warn(LOGGING_PATTERN, PREFIX, msg);
+        this.logger.warn(LOGGING_PATTERN, PREFIX, msg);
     }
 }

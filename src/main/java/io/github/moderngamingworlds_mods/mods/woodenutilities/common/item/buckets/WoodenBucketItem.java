@@ -56,16 +56,16 @@ public class WoodenBucketItem extends BucketItem {
         if (!level.isClientSide) {
             if (this.content.getAttributes().getTemperature() >= ModConfig.WoodenBucket.maxTemperature) {
                 if (entity instanceof Player playerEntity) {
-                    if (!hasCooldown) {
+                    if (!this.hasCooldown) {
                         playerEntity.getCooldowns().addCooldown(this, ModConfig.WoodenBucket.destroyTime);
-                        hasCooldown = true;
+                        this.hasCooldown = true;
                     }
                     if (!playerEntity.getCooldowns().isOnCooldown(this)) {
                         playerEntity.getCooldowns().removeCooldown(this);
                         stack.shrink(1);
                         playerEntity.setSecondsOnFire(ModConfig.WoodenBucket.fireTime);
                         playerEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND);
-                        hasCooldown = false;
+                        this.hasCooldown = false;
                     }
                 }
             }
@@ -114,7 +114,7 @@ public class WoodenBucketItem extends BucketItem {
                     return InteractionResultHolder.fail(itemInHand);
                 } else {
                     var blockstate = level.getBlockState(blockpos);
-                    var blockpos2 = canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
+                    var blockpos2 = this.canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
                     if (this.emptyContents(player, level, blockpos2, (BlockHitResult) raytraceresult)) {
                         this.checkExtraContent(player, level, itemInHand, blockpos2);
                         if (player instanceof ServerPlayer serverPlayer) {
