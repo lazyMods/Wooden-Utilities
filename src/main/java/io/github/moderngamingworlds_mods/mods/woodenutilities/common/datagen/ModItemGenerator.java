@@ -1,43 +1,20 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.datagen;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets.EnumWoodenBucket;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.plates.EnumWoodenPlate;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModConstants;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
+import io.github.noeppi_noeppi.libx.data.provider.ItemModelProviderBase;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.DynamicBucketModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class ModItemGenerator extends ItemModelProvider {
-
-    private static final String ITEMS_TAG = "items/";
-    private static final String ITEM_HANDHELD_TAG = "item/handheld";
-    private static final String LAYER_0_TAG = "layer0";
+public class ModItemGenerator extends ItemModelProviderBase {
 
     public ModItemGenerator(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, ModConstants.MOD_ID, existingFileHelper);
+        super(WoodenUtilities.getInstance(), generator, existingFileHelper);
     }
 
     @Override
-    protected void registerModels() {
-        EnumWoodenPlate.asList().forEach(plate -> this.handheldZeroLayeredModel(plate.getRegistryName()));
-        EnumWoodenBucket.asList().forEach(bucket -> this.forgeBucket(bucket.getRegistryName(), bucket.getFluid()));
-
-        this.handheldZeroLayeredModel(ModConstants.Items.WOODEN_SHEARS);
-        this.handheldZeroLayeredModel(ModConstants.Items.WOODEN_DIAMOND);
-    }
-
-    private void handheldZeroLayeredModel(String regName) {
-        this.singleTexture(regName, new ResourceLocation(ITEM_HANDHELD_TAG), LAYER_0_TAG, new ResourceLocation(modid, ITEMS_TAG + regName));
-    }
-
-    private void forgeBucket(String regName, Fluid fluid){
-        this.getBuilder(regName).parent(new ModelFile.UncheckedModelFile("forge:item/bucket_drip"))
-                .texture("base", this.modLoc(ITEMS_TAG + "wooden_bucket"))
-                .customLoader(DynamicBucketModelBuilder::begin)
-                .fluid(fluid);
+    protected void setup() {
+        this.handheld(ModItems.woodenDiamond);
+        this.handheld(ModItems.woodenShears);
     }
 }

@@ -1,8 +1,6 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.datagen;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
 import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets.EnumWoodenBucket;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.plates.EnumWoodenPlate;
 import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModConstants;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -22,11 +20,11 @@ public class ModLangGenerator extends LanguageProvider {
 
         this.addConfigScreenTranslations();
 
-        EnumWoodenPlate.asList().forEach(plate -> this.add(plate.getRegistryObject().get(), plate.getDisplayName()));
+//        EnumWoodenPlate.asList().forEach(plate -> this.add(plate.getRegistryObject().get(), plate.getDisplayName()));
         EnumWoodenBucket.asList().forEach(bucket -> this.add(bucket.getRegistryObject().get(), bucket.getDisplayName()));
 
-        this.add(ModItems.WOODEN_SHEARS.get(), "Wooden Shears");
-        this.add(ModItems.WOODEN_DIAMOND.get(), "Wooden Diamond");
+//        this.add(ModItems.WOODEN_SHEARS.get(), "Wooden Shears");
+//        this.add(ModItems.WOODEN_DIAMOND.get(), "Wooden Diamond");
     }
 
     private void addConfigScreenTranslations(){

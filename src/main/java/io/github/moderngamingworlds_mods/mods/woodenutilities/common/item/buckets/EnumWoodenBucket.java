@@ -15,9 +15,9 @@ import java.util.List;
 
 public enum EnumWoodenBucket {
 
-    EMPTY(ModConstants.Items.WOODEN_BUCKET, "Wooden Bucket", Fluids.EMPTY),
-    LAVA(ModConstants.Items.WOODEN_BUCKET_LAVA, "Lava Wooden Bucket", Fluids.LAVA),
-    WATER(ModConstants.Items.WOODEN_BUCKET_WATER, "Water Wooden Bucket", Fluids.WATER);
+    EMPTY(ModConstants.Items.WOODEN_BUCKET, Fluids.EMPTY),
+    LAVA(ModConstants.Items.WOODEN_BUCKET_LAVA, Fluids.LAVA),
+    WATER(ModConstants.Items.WOODEN_BUCKET_WATER, Fluids.WATER);
 
     private final String regName;
     private final String displayName;
@@ -27,9 +27,9 @@ public enum EnumWoodenBucket {
 
     private static final ModLogger logger = new ModLogger(LogManager.getLogger());
 
-    EnumWoodenBucket(String regName, String displayName, Fluid withFluid) {
+    EnumWoodenBucket(String regName, Fluid withFluid) {
         this.regName = regName;
-        this.displayName = displayName;
+        this.displayName = "Fix Me"; // TODO
         this.withFluid = withFluid;
     }
 

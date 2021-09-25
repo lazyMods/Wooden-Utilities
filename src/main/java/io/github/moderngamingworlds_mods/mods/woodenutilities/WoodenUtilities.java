@@ -1,21 +1,30 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModInit;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.plates.EnumWoodenPlate;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModUtils;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
 import io.github.noeppi_noeppi.libx.mod.registration.ModXRegistration;
 import io.github.noeppi_noeppi.libx.mod.registration.RegistrationBuilder;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import javax.annotation.Nonnull;
 
 @Mod("woodenutilities")
 public class WoodenUtilities extends ModXRegistration {
 
+    private static WoodenUtilities instance;
+
     public WoodenUtilities() {
-        super("woodenutilities", ModUtils.createTab("woodenutilities", EnumWoodenPlate.OAK::getItem));
-        ModInit.init(FMLJavaModLoadingContext.get().getModEventBus());
+        super("woodenutilities", new CreativeModeTab("woodenutilities") {
+            @Nonnull
+            @Override
+            public ItemStack makeIcon() {
+                return new ItemStack(ModItems.oakPlate);
+            }
+        });
+        instance = this;
     }
 
     @Override
@@ -31,5 +40,9 @@ public class WoodenUtilities extends ModXRegistration {
     @Override
     protected void initRegistration(RegistrationBuilder builder) {
         builder.setVersion(1);
+    }
+
+    public static WoodenUtilities getInstance() {
+        return instance;
     }
 }

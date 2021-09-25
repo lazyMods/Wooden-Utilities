@@ -1,6 +1,6 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModInit;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -33,7 +33,8 @@ public class WoodenBucketItem extends BucketItem {
     private boolean hasCooldown = false;
 
     public WoodenBucketItem(Supplier<Fluid> inFluid) {
-        super(inFluid, new Properties().tab(ModInit.CREATIVE_TAB).stacksTo(inFluid == Fluids.EMPTY ? 16 : 1));
+        //noinspection ConstantConditions
+        super(inFluid, new Properties().tab(WoodenUtilities.getInstance().tab).stacksTo(inFluid == Fluids.EMPTY ? 16 : 1));
         this.content = inFluid.get();
     }
 
