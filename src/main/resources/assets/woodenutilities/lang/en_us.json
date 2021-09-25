@@ -1,6 +1,8 @@
 {
   "itemGroup.woodenutilities": "Wooden Utilities",
 
+  "block.woodenutilities.crafting_slab": "Crafting Slab",
+
   "item.woodenutilities.acacia_plate": "Acacia Plate",
   "item.woodenutilities.birch_plate": "Birch Plate",
   "item.woodenutilities.crimson_plate": "Crimson Plate",

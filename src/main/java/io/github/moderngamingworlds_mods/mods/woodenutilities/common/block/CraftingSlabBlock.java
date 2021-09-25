@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -42,11 +43,13 @@ public class CraftingSlabBlock extends SlabBlock implements Registerable {
     @ParametersAreNonnullByDefault
     @Nonnull
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitRes) {
-        if (!level.isClientSide) {
-            player.openMenu(state.getMenuProvider(level, pos));
+        if (level.isClientSide) {
             return InteractionResult.SUCCESS;
+        } else {
+            player.openMenu(state.getMenuProvider(level, pos));
+            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+            return InteractionResult.CONSUME;
         }
-        return super.use(state, level, pos, player, hand, hitRes);
     }
 
     @Nullable
@@ -57,7 +60,7 @@ public class CraftingSlabBlock extends SlabBlock implements Registerable {
             @Override
             @Nonnull
             public Component getDisplayName() {
-                return new TranslatableComponent("container.crafting_slab.title");
+                return new TranslatableComponent("container.crafting");
             }
 
             @Override
