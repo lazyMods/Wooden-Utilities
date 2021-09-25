@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Dit is de tekst die op de eerste pagina verschijnt.",
-  "book.name": "Houten hulpprogramma's: gids",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "Acacia plaat",
   "item.woodenutilities.birch_plate": "Berken plaat",
   "item.woodenutilities.crimson_plate": "Karmozijnrode plaat",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "kromgetrokken plaat",
   "item.woodenutilities.water_wooden_bucket": "Water houten emmer",
   "item.woodenutilities.wooden_bucket": "Houten emmer",
-  "item.woodenutilities.wooden_shears": "Houten schaar",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Houten Emmer Configuraties.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Vernietig de emmertijd.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "De tijd in tikken die de houten emmer nodig heeft om zichzelf te verbranden bij het plukken van een hete vloeistof.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Tijd om in brand te steken.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Aantal seconden dat de speler in brand wordt gestoken wanneer de emmer zichzelf verbrandt.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Maximale temperatuur.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "De maximale temperatuur die de houten emmer kan vasthouden totdat hij zichzelf verbrandt.",
-  "text.autoconfig.woodenutilities.title": "Configuraties voor houten hulpprogramma's",
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Houten schaar"
 }

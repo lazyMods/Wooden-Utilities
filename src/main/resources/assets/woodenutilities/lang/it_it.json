@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Questo è il testo che compare in prima pagina.",
-  "book.name": "Utilità in legno: guida",
+  "itemGroup.woodenutilities": "Utilità in legno",
+
   "item.woodenutilities.acacia_plate": "Piatto Acacia",
   "item.woodenutilities.birch_plate": "Piatto di betulla",
   "item.woodenutilities.crimson_plate": "Piatto Cremisi",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "Piatto deformato",
   "item.woodenutilities.water_wooden_bucket": "Secchio d'acqua in legno",
   "item.woodenutilities.wooden_bucket": "Secchio di legno",
-  "item.woodenutilities.wooden_shears": "cesoie in legno",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Configurazioni di secchi di legno.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Distruggi il tempo del secchio.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "Il tempo in zecche che il secchio di legno impiegherà per bruciarsi quando si preleva un fluido caldo.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "È ora di dare fuoco.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Numero di secondi in cui il giocatore prenderà fuoco quando il secchio si brucerà.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Temperatura massima.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "La temperatura massima che il secchio di legno può contenere fino a quando non si brucia.",
-  "text.autoconfig.woodenutilities.title": "Configurazioni di utilità in legno",
-  "itemGroup.woodenutilities": "Utilità in legno"
+  "item.woodenutilities.wooden_shears": "cesoie in legno"
 }
