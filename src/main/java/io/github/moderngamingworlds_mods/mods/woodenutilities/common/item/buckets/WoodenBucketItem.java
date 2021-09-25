@@ -17,13 +17,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -62,6 +63,9 @@ public class WoodenBucketItem extends BucketItem {
                     }
                     if (!playerEntity.getCooldowns().isOnCooldown(this)) {
                         playerEntity.getCooldowns().removeCooldown(this);
+                        if (level.getBlockState(entity.blockPosition()).isAir()) {
+                            level.setBlock(entity.blockPosition(), this.getFluid().defaultFluidState().createLegacyBlock(), Block.UPDATE_ALL);
+                        }
                         stack.shrink(1);
                         playerEntity.setSecondsOnFire(ModConfig.WoodenBucket.fireTime);
                         playerEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND);
@@ -78,7 +82,7 @@ public class WoodenBucketItem extends BucketItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var itemInHand = player.getItemInHand(hand);
         var raytraceresult = getPlayerPOVHitResult(level, player, this.content == Fluids.EMPTY ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE);
-        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(player, level, itemInHand, raytraceresult);
+        InteractionResultHolder<ItemStack> ret = ForgeEventFactory.onBucketUse(player, level, itemInHand, raytraceresult);
         if (ret != null) return ret;
         if (raytraceresult.getType() == HitResult.Type.MISS) {
             return InteractionResultHolder.pass(itemInHand);
@@ -115,7 +119,7 @@ public class WoodenBucketItem extends BucketItem {
                 } else {
                     var blockstate = level.getBlockState(blockpos);
                     var blockpos2 = this.canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
-                    if (this.emptyContents(player, level, blockpos2, (BlockHitResult) raytraceresult)) {
+                    if (this.emptyContents(player, level, blockpos2, raytraceresult)) {
                         this.checkExtraContent(player, level, itemInHand, blockpos2);
                         if (player instanceof ServerPlayer serverPlayer) {
                             CriteriaTriggers.PLACED_BLOCK.trigger(serverPlayer, blockpos2, itemInHand);
