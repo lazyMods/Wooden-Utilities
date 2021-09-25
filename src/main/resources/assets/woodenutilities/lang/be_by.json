@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Гэта тэкст, які з'яўляецца на першай старонцы.",
-  "book.name": "Драўляныя камунальныя паслугі: Кіраўніцтва",
+  "itemGroup.woodenutilities": "Драўляныя інжынерныя камунікацыі",
+
   "item.woodenutilities.acacia_plate": "Акацыевая пласціна",
   "item.woodenutilities.birch_plate": "Бярозавая талерка",
   "item.woodenutilities.crimson_plate": "Малінавая талерка",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "Перакошаная пласціна",
   "item.woodenutilities.water_wooden_bucket": "Вадзяное драўлянае вядро",
   "item.woodenutilities.wooden_bucket": "Драўлянае вядро",
-  "item.woodenutilities.wooden_shears": "Драўляныя нажніцы",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Канфігуры з драўлянага вядра.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Знішчыць час вядра.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "Час у кляшчоў, які Драўлянае вядро спатрэбіцца, каб самастойна згарэць пры зборы гарачай вадкасці.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Час падпальваць.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Колькасць секунд, калі гулец будзе падпалены, калі вядро згарыць само.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Максімальная тэмпература.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Максімальная тэмпература, якую можа трымаць драўлянае вядро, пакуль не згарыць.",
-  "text.autoconfig.woodenutilities.title": "Канфігурацыі драўляных камунальных паслуг",
-  "itemGroup.woodenutilities": "Драўляныя інжынерныя камунікацыі"
+  "item.woodenutilities.wooden_shears": "Драўляныя нажніцы"
 }

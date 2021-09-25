@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "이것은 첫 페이지에 나타나는 텍스트입니다.",
-  "book.name": "목재 유틸리티 : 가이드",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "아카시아 플레이트",
   "item.woodenutilities.birch_plate": "버치 플레이트",
   "item.woodenutilities.crimson_plate": "크림슨 플레이트",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "뒤틀린 판",
   "item.woodenutilities.water_wooden_bucket": "물 나무 통",
   "item.woodenutilities.wooden_bucket": "나무 통",
-  "item.woodenutilities.wooden_shears": "나무 가위",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "나무통 구성.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "버킷 시간을 파괴하십시오.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "나무통이 뜨거운 액체를 따를 때 자체 연소하는 데 걸리는 시간 (틱)입니다.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "불을 붙일 시간입니다.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "양동이가 스스로 타 버릴 때 플레이어가 불이 붙는 시간 (초)입니다.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "최대 온도.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "나무통이 스스로 타 버릴 때까지 유지할 수있는 최대 온도입니다.",
-  "text.autoconfig.woodenutilities.title": "나무 유틸리티 구성",
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "나무 가위"
 }

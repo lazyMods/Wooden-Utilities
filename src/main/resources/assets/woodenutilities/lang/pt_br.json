@@ -1,6 +1,6 @@
 {
-  "book.name": "Utilitários de madeira: guia",
-  "book.landing_text": "Este é o texto que aparece na primeira página.",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "Placa de Acácia",
   "item.woodenutilities.birch_plate": "Placa de Bétula",
   "item.woodenutilities.crimson_plate": "Prato Carmesim",
@@ -12,15 +12,5 @@
   "item.woodenutilities.warped_plate": "Placa empenada",
   "item.woodenutilities.water_wooden_bucket": "Balde de madeira de água",
   "item.woodenutilities.wooden_bucket": "Balde de madeira",
-  "item.woodenutilities.wooden_shears": "Tesouras de madeira",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Configs de balde de madeira.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Destrua o tempo do balde.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "O tempo em tiquetaques que o Balde de Madeira levará para se queimar ao pegar um fluido quente.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "É hora de pegar fogo.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Número de segundos que o jogador será incendiado quando o balde se queimar.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Temperatura máxima.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "A temperatura máxima que o Balde de Madeira pode manter até queime.",
-  "text.autoconfig.woodenutilities.title": "Configurações de utilidades de madeira",
-
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Tesouras de madeira"
 }

@@ -1,6 +1,6 @@
 {
-  "book.name": "木製ユーティリティ: ガイド",
-  "book.landing_text": "これは、最初のページに表示されるテキストです。",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "アカシアプレート",
   "item.woodenutilities.birch_plate": "バーチプレート",
   "item.woodenutilities.crimson_plate": "クリムゾン・プレート",
@@ -12,15 +12,5 @@
   "item.woodenutilities.warped_plate": "歪んだプレート",
   "item.woodenutilities.water_wooden_bucket": "水 木のバケツ",
   "item.woodenutilities.wooden_bucket": "木製バケツ",
-  "item.woodenutilities.wooden_shears": "木製の鋏",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "木製のバケツ構成。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "バケット時間を破壊します。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "熱い液体を選んでいるときに、木製のバケツが自己燃焼するまでにかかる時間 (ティック単位)。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "火を点ける時間。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "バケツが燃えたときにプレーヤーが燃える秒数。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "最高温度。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "木のバケツが燃え尽きるまで保持できる最高温度。",
-  "text.autoconfig.woodenutilities.title": "木のユーティリティ構成",
-
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "木製の鋏"
 }

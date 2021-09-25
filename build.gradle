@@ -1,77 +1,9 @@
 buildscript {
-    repositories {
-
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url "https://plugins.gradle.org/m2/" }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
-}
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
-//----------------------------------------------------------------------------------------------------------------------
-version = '${mod_version}'
-group = '${artifact_group}.${artifact_basename}'
-archivesBaseName = '${artifact_basename}'
-
-
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-minecraft {
-
-    mappings channel: 'official', version: '1.17.1'
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'woodenutilities', '--all', '--output', file('generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                woodenutilities {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
+    apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/buildscript.gradle', to: buildscript
 }
 
-sourceSets.main.resources { srcDir 'generated/resources' }
+apply from: 'https://raw.githubusercontent.com/noeppi-noeppi/ModUtils/v2/mod.gradle'
+apply plugin: 'io.github.noeppi_noeppi.tools.modgradle.cursedep'
 
 repositories {
 
@@ -79,47 +11,17 @@ repositories {
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.theillusivec4.top/" }
     maven { url "https://dvs1.progwml6.com/files/maven/" }
-    maven {
-        url "https://www.cursemaven.com"
-        content {
-            includeGroup 'curse.maven'
-        }
-    }
+    maven { url "https://maven.melanx.de/" }
 }
 
 dependencies {
+    annotationProcessor fg.deobf("io.github.noeppi_noeppi.mods:LibX:1.17.1-2.0.19")
 
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.70'
+    implementation fg.deobf("io.github.noeppi_noeppi.mods:LibX:1.17.1-2.0.19")
+    compileOnly fg.deobf("mezz.jei:jei-1.17.1:8.0.0.16:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.0.0.16")
 
-    implementation fg.deobf("curse.maven:${curios_version}")
-
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
-
-    compileOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
-    runtimeOnly fg.deobf("curse.maven:the-one-probe-245211:3402482")
-
-    compileOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
-    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
-}
-
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "Wooden Utilities",
-                "Specification-Vendor"    : "ModernGamingWorld",
-                "Specification-Version"   : "${mod_version}",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : mod_version,
-                "Implementation-Vendor"   : "ModernGamingWorld",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-jar.finalizedBy('reobfJar')
-
-publishing {
-    publications { mavenJava(MavenPublication) { artifact jar } }
-    repositories { maven { url "file:///${project.projectDir}/mcmodsrepo" } }
+    implementation curse.mod(309927, 3403758) // Curios
+    implementation curse.mod(245211, 3402482) // The One Probe
+    implementation curse.mod(324717, 3468298) // Jade
 }

@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Este es el texto que aparece en la primera página.",
-  "book.name": "Utilidades de madera: Guía",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "Placa de acacia",
   "item.woodenutilities.birch_plate": "Placa de abedul",
   "item.woodenutilities.crimson_plate": "Placa carmesí",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "Placa deformada",
   "item.woodenutilities.water_wooden_bucket": "Cubo de madera de agua",
   "item.woodenutilities.wooden_bucket": "Balde de madera",
-  "item.woodenutilities.wooden_shears": "Tijeras de madera",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Configuraciones de cubos de madera.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Destruye el tiempo del balde.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "El tiempo en garrapatas que el cubo de madera tardará en quemarse al recoger un líquido caliente.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Hora de prender fuego.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Número de segundos que el jugador se prenderá fuego cuando el cubo se queme.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Temperatura máxima.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "La temperatura máxima que el cubo de madera puede mantener hasta que se quema.",
-  "text.autoconfig.woodenutilities.title": "Configuraciones de utilidades de madera",
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Tijeras de madera"
 }

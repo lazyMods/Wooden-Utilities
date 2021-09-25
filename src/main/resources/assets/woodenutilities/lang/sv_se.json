@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Det här är texten som visas på första sidan.",
-  "book.name": "Träverktyg: guide",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "Acacia Plate",
   "item.woodenutilities.birch_plate": "Björkplatta",
   "item.woodenutilities.crimson_plate": "Crimson Plate",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "Vriden tallrik",
   "item.woodenutilities.water_wooden_bucket": "Vatten trähink",
   "item.woodenutilities.wooden_bucket": "Trähink",
-  "item.woodenutilities.wooden_shears": "Träsaxar",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Träskopkonfig.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Förstör skoptid.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "Tiden i fästingar som träskopan tar för att bränna sig själv när man plockar en het vätska.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Dags att tända.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Antal sekunder som spelaren tänds när skopan bränner sig själv.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Max temperatur.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Den maximala temperaturen som träskopan kan hålla tills den bränner sig själv.",
-  "text.autoconfig.woodenutilities.title": "Träverktyg Configs",
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Träsaxar"
 }

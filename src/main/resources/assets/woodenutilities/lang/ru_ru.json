@@ -1,6 +1,6 @@
 {
-  "book.name": "Деревянные утилиты: Путеводитель",
-  "book.landing_text": "Это текст, который появляется на первой странице.",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "Плита акации",
   "item.woodenutilities.birch_plate": "Березовая дощечка",
   "item.woodenutilities.crimson_plate": "Малиновая тарелка",
@@ -12,15 +12,5 @@
   "item.woodenutilities.warped_plate": "Деформированная пластина",
   "item.woodenutilities.water_wooden_bucket": "Деревянное ведро для воды",
   "item.woodenutilities.wooden_bucket": "Деревянное ведро",
-  "item.woodenutilities.wooden_shears": "Деревянные ножницы",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Конфигурации деревянного ведра.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Уничтожьте время ведра.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "Время в тиках, за которое Деревянное ведро самовозгорится при сборе горячей жидкости.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Пора поджечь.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Количество секунд, в течение которых игрок будет подожжен, когда ведро сгорит само.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Максимальная температура.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Максимальная температура, которую может выдержать Деревянное ведро, пока оно не загорится.",
-  "text.autoconfig.woodenutilities.title": "Конфигурации деревянных утилит",
-
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Деревянные ножницы"
 }

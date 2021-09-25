@@ -1,7 +1,5 @@
 {
-  "itemGroup.woodenutilities": "Wooden Utilities"
-  "book.landing_text": "这是出现在第一页上的文本。",
-  "book.name": "木制工具：指南",
+  "itemGroup.woodenutilities": "Wooden Utilities",
   "item.woodenutilities.acacia_plate": "金合欢板",
   "item.woodenutilities.birch_plate": "白桦木板",
   "item.woodenutilities.crimson_plate": "绯红木板",
@@ -13,13 +11,5 @@
   "item.woodenutilities.warped_plate": "诡异木板",
   "item.woodenutilities.water_wooden_bucket": "水木桶",
   "item.woodenutilities.wooden_bucket": "木桶",
-  "item.woodenutilities.wooden_shears": "木剪刀",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "木桶配置。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "桶什么时候自燃。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "木桶在拾取热流体时自燃所需的时间（以Tick为单位）。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "什么时候着火.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "当桶燃烧时玩家将着火的秒数。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "最高温度。",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "木桶在燃烧前所能承受的最高温度。",
-  "text.autoconfig.woodenutilities.title": "Wooden Utilities配置",
+  "item.woodenutilities.wooden_shears": "木剪刀"
 }

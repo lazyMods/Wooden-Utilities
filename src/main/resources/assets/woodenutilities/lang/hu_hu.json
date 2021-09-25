@@ -1,6 +1,6 @@
 {
-  "book.landing_text": "Ez az a szöveg jelenik meg az első oldalon.",
-  "book.name": "Fa segédprogramok: Útmutató",
+  "itemGroup.woodenutilities": "Fa segédprogramok",
+
   "item.woodenutilities.acacia_plate": "Akáclemez",
   "item.woodenutilities.birch_plate": "Nyírlemez",
   "item.woodenutilities.crimson_plate": "Bíborlemez",
@@ -12,14 +12,5 @@
   "item.woodenutilities.warped_plate": "Megvetemedett lemez",
   "item.woodenutilities.water_wooden_bucket": "Víz fa vödör",
   "item.woodenutilities.wooden_bucket": "Fa vödör",
-  "item.woodenutilities.wooden_shears": "Fa ollók",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Fa vödör konfigurációk.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Pusztítsd el a vödör időt.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "A kullancsokban eltöltött idő, amelyet a Fakanál önégetni fog, amikor forró folyadékot szed.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Ideje felgyújtani.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Azon másodpercek száma, amikor a lejátszót felgyújtják, amikor a vödör megégeti.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Max. Hőmérséklet.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Az a maximális hőmérséklet, amelyet a Fakanál képes megtartani, amíg meg nem ég.",
-  "text.autoconfig.woodenutilities.title": "Fa segédprogramok konfigurációi",
-  "itemGroup.woodenutilities": "Fa segédprogramok"
+  "item.woodenutilities.wooden_shears": "Fa ollók"
 }

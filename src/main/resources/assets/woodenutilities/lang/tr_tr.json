@@ -1,6 +1,6 @@
 {
-  "book.name": "Ahşap Araçlar: Kılavuz",
-  "book.landing_text": "Bu, ilk sayfada görünen metindir.",
+  "itemGroup.woodenutilities": "Wooden Utilities",
+
   "item.woodenutilities.acacia_plate": "akasya tabağı",
   "item.woodenutilities.birch_plate": "huş ağacı tabağı",
   "item.woodenutilities.crimson_plate": "kıpkırmızı tabak",
@@ -12,15 +12,5 @@
   "item.woodenutilities.warped_plate": "çarpık plaka",
   "item.woodenutilities.water_wooden_bucket": "Su Ahşap Kova",
   "item.woodenutilities.wooden_bucket": "Ahşap Kova",
-  "item.woodenutilities.wooden_shears": "Ahşap Makaslar",
-  "text.autoconfig.woodenutilities.option.woodenBucket": "Ahşap Kova Konfigürasyonları.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime": "Kova zamanını yok et.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.destroyTime.@Tooltip": "Tahta Kovanın sıcak bir sıvı alırken kendi kendine yanması için gereken süre.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime": "Ateşe verme zamanı.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.fireTime.@Tooltip": "Kova kendini yaktığında oyuncunun ateşe verileceği saniye sayısı.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature": "Maksimum sıcaklık.",
-  "text.autoconfig.woodenutilities.option.woodenBucket.maxTemperature.@Tooltip": "Tahta Kovanın kendini yakıncaya kadar tutabileceği maksimum sıcaklık.",
-  "text.autoconfig.woodenutilities.title": "Ahşap Tesis Yapılandırmaları",
-
-  "itemGroup.woodenutilities": "Wooden Utilities"
+  "item.woodenutilities.wooden_shears": "Ahşap Makaslar"
 }
