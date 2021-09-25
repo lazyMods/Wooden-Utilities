@@ -7,6 +7,9 @@ import io.github.noeppi_noeppi.libx.config.Group;
 @RegisterConfig
 public class ModConfig {
 
+    @Config("Chance to get mining fatigue when breaking logs with empty hand.")
+    public static double miningFatigueChance = 0.2;
+
     @Group
     public static class WoodenBucket {
 

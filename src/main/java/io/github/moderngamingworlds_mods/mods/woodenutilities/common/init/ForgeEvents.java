@@ -1,5 +1,6 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.init;
 
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.config.ModConfig;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -16,8 +17,7 @@ public class ForgeEvents {
         if (!event.getWorld().isClientSide()) {
             if (event.getPlayer().getMainHandItem() == ItemStack.EMPTY) {
                 if (event.getState().is(BlockTags.LOGS)) {
-                    //TODO: Config to change the chance of getting mining fatigue and maybe add duration of the effect.
-                    if (event.getWorld().getRandom().nextFloat() <= 0.2f) {
+                    if (event.getWorld().getRandom().nextDouble() <= ModConfig.miningFatigueChance) {
                         event.getPlayer().addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 2000, 2));
                     }
                 }

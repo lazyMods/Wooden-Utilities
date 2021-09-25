@@ -85,9 +85,8 @@ public class WoodenBucketItem extends BucketItem {
         } else if (raytraceresult.getType() != HitResult.Type.BLOCK) {
             return InteractionResultHolder.pass(itemInHand);
         } else {
-            var blockraytraceresult = (BlockHitResult) raytraceresult;
-            var blockpos = blockraytraceresult.getBlockPos();
-            Direction direction = blockraytraceresult.getDirection();
+            var blockpos = raytraceresult.getBlockPos();
+            Direction direction = raytraceresult.getDirection();
             BlockPos blockpos1 = blockpos.relative(direction);
             if (level.mayInteract(player, blockpos) && player.mayUseItemAt(blockpos1, direction, itemInHand)) {
                 if (this.content == Fluids.EMPTY) {
@@ -116,7 +115,7 @@ public class WoodenBucketItem extends BucketItem {
                 } else {
                     var blockstate = level.getBlockState(blockpos);
                     var blockpos2 = canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
-                    if (this.emptyContents(player, level, blockpos2, blockraytraceresult)) {
+                    if (this.emptyContents(player, level, blockpos2, (BlockHitResult) raytraceresult)) {
                         this.checkExtraContent(player, level, itemInHand, blockpos2);
                         if (player instanceof ServerPlayer serverPlayer) {
                             CriteriaTriggers.PLACED_BLOCK.trigger(serverPlayer, blockpos2, itemInHand);
