@@ -1,6 +1,8 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets;
 
 import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.config.ModConfig;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,7 +42,7 @@ public class WoodenBucketItem extends BucketItem {
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-        return new ItemStack(EnumWoodenBucket.EMPTY.getItem());
+        return new ItemStack(ModItems.woodenBucket);
     }
 
     @Override
@@ -52,19 +54,16 @@ public class WoodenBucketItem extends BucketItem {
     @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if (!level.isClientSide) {
-            //TODO: Readd config maxTemperature
-            if (this.content.getAttributes().getTemperature() >= 1300) {
+            if (this.content.getAttributes().getTemperature() >= ModConfig.WoodenBucket.maxTemperature) {
                 if (entity instanceof Player playerEntity) {
                     if (!hasCooldown) {
-                        //TODO: Readd config destroyTime
-                        playerEntity.getCooldowns().addCooldown(this, 50);
+                        playerEntity.getCooldowns().addCooldown(this, ModConfig.WoodenBucket.destroyTime);
                         hasCooldown = true;
                     }
                     if (!playerEntity.getCooldowns().isOnCooldown(this)) {
                         playerEntity.getCooldowns().removeCooldown(this);
                         stack.shrink(1);
-                        //TODO: Readd config fireTime
-                        playerEntity.setSecondsOnFire(5);
+                        playerEntity.setSecondsOnFire(ModConfig.WoodenBucket.fireTime);
                         playerEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND);
                         hasCooldown = false;
                     }
@@ -138,7 +137,7 @@ public class WoodenBucketItem extends BucketItem {
     @ParametersAreNonnullByDefault
     @Nonnull
     public static ItemStack getEmptySuccessItem(ItemStack stack, Player player) {
-        return !player.getAbilities().instabuild ? new ItemStack(EnumWoodenBucket.EMPTY.getItem()) : stack;
+        return !player.getAbilities().instabuild ? new ItemStack(ModItems.woodenBucket) : stack;
     }
 
     private boolean canBlockContainFluid(Level levelIn, BlockPos posIn, BlockState blockstate) {

@@ -1,41 +1,24 @@
 package io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModConstants;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility.ModLogger;
+import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.Arrays;
 import java.util.List;
 
 public enum EnumWoodenBucket {
 
-    EMPTY(ModConstants.Items.WOODEN_BUCKET, Fluids.EMPTY),
-    LAVA(ModConstants.Items.WOODEN_BUCKET_LAVA, Fluids.LAVA),
-    WATER(ModConstants.Items.WOODEN_BUCKET_WATER, Fluids.WATER);
+    EMPTY(Fluids.EMPTY),
+    LAVA(Fluids.LAVA),
+    WATER(Fluids.WATER);
 
-    private final String regName;
-    private final String displayName;
     private final Fluid withFluid;
 
-    private RegistryObject<Item> registryObject;
-
-    private static final ModLogger logger = new ModLogger(LogManager.getLogger());
-
-    EnumWoodenBucket(String regName, Fluid withFluid) {
-        this.regName = regName;
-        this.displayName = "Fix Me"; // TODO
+    EnumWoodenBucket(Fluid withFluid) {
         this.withFluid = withFluid;
-    }
-
-    public static void registerAll(DeferredRegister<Item> deferredRegister) {
-        logger.debug("Registering wooden plates...");
-        asList().forEach(bucket -> bucket.setRegistryObject(deferredRegister.register(bucket.getRegistryName(), () -> new WoodenBucketItem(() -> bucket.withFluid))));
     }
 
     public static List<EnumWoodenBucket> asList() {
@@ -50,23 +33,17 @@ public enum EnumWoodenBucket {
     }
 
     public Item getItem() {
-        return this.getRegistryObject().get();
-    }
-
-    public void setRegistryObject(RegistryObject<Item> registryObject) {
-        this.registryObject = registryObject;
-    }
-
-    public RegistryObject<Item> getRegistryObject() {
-        return this.registryObject;
-    }
-
-    public String getDisplayName() {
-        return this.displayName;
-    }
-
-    public String getRegistryName() {
-        return this.regName;
+        switch (this) {
+            case WATER -> {
+                return ModItems.waterWoodenBucket;
+            }
+            case LAVA -> {
+                return ModItems.lavaWoodenBucket;
+            }
+            default -> {
+                return ModItems.woodenBucket;
+            }
+        }
     }
 
     public Fluid getFluid() {
