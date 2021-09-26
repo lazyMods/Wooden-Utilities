@@ -1,6 +1,6 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.init;
+package io.github.moderngamingworlds_mods.woodenutilities.common.init;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.config.ModConfig;
+import io.github.moderngamingworlds_mods.woodenutilities.common.config.ModConfig;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

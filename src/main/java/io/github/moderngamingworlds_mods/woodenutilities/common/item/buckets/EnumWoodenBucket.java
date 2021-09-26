@@ -1,6 +1,6 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets;
+package io.github.moderngamingworlds_mods.woodenutilities.common.item.buckets;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
+import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;

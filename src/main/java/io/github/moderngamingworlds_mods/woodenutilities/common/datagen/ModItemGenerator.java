@@ -1,7 +1,7 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.datagen;
+package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
+import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
+import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
 import io.github.noeppi_noeppi.libx.data.provider.ItemModelProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;

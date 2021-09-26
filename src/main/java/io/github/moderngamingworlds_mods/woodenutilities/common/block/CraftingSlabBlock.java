@@ -1,7 +1,7 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.block;
+package io.github.moderngamingworlds_mods.woodenutilities.common.block;
 
 import com.google.common.collect.ImmutableSet;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
+import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
 import io.github.noeppi_noeppi.libx.mod.registration.Registerable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

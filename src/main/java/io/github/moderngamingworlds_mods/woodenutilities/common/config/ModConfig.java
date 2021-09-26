@@ -1,4 +1,4 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.config;
+package io.github.moderngamingworlds_mods.woodenutilities.common.config;
 
 import io.github.noeppi_noeppi.libx.annotation.config.RegisterConfig;
 import io.github.noeppi_noeppi.libx.config.Config;

@@ -1,8 +1,8 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.init;
+package io.github.moderngamingworlds_mods.woodenutilities.common.init;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.BaseItem;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.WoodenShears;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets.WoodenBucketItem;
+import io.github.moderngamingworlds_mods.woodenutilities.common.item.BaseItem;
+import io.github.moderngamingworlds_mods.woodenutilities.common.item.WoodenShears;
+import io.github.moderngamingworlds_mods.woodenutilities.common.item.buckets.WoodenBucketItem;
 import io.github.noeppi_noeppi.libx.annotation.registration.RegisterClass;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluids;

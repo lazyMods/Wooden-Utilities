@@ -1,8 +1,8 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.item.buckets;
+package io.github.moderngamingworlds_mods.woodenutilities.common.item.buckets;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.WoodenUtilities;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.config.ModConfig;
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
+import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
+import io.github.moderngamingworlds_mods.woodenutilities.common.config.ModConfig;
+import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

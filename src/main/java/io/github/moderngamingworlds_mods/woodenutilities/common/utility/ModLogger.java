@@ -1,4 +1,4 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.utility;
+package io.github.moderngamingworlds_mods.woodenutilities.common.utility;
 
 import org.apache.logging.log4j.Logger;
 

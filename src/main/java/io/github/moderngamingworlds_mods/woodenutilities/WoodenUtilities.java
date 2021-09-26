@@ -1,6 +1,6 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities;
+package io.github.moderngamingworlds_mods.woodenutilities;
 
-import io.github.moderngamingworlds_mods.mods.woodenutilities.common.init.ModItems;
+import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
 import io.github.noeppi_noeppi.libx.mod.registration.ModXRegistration;
 import io.github.noeppi_noeppi.libx.mod.registration.RegistrationBuilder;
 import net.minecraft.world.item.CreativeModeTab;

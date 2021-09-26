@@ -1,4 +1,4 @@
-package io.github.moderngamingworlds_mods.mods.woodenutilities.common.datagen;
+package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
