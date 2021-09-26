@@ -3,7 +3,6 @@
 * [x] Fix gradle not picking generated resources.
 * [ ] Reimplement:
     * [ ] JEI
-    * [ ] Cloth
     * [x] Jade
     * [x] TOP
 * [x] Wait on Forge to fix the bucket model loader
@@ -16,7 +15,7 @@
     * Configs: Chance and maybe duration.
 * [ ] Re add Wooden TNT Block
 
-* [ ] Crafting slab:
-    * Add double slab state.
-    * Waterlogged support.
-    * Translation.
+* [x] Crafting slab:
+  * Add double slab state.
+  * Waterlogged support.
+  * Translation.
