@@ -12,7 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import javax.annotation.Nonnull;
 
 @Mod("woodenutilities")
-public class WoodenUtilities extends ModXRegistration {
+public final class WoodenUtilities extends ModXRegistration {
 
     private static WoodenUtilities instance;
 
