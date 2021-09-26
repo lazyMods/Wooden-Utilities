@@ -44,15 +44,7 @@ public class ModBlockStateGenerator extends BlockStateProviderBase {
 
     private void slabLol(ResourceLocation id, Block block, ResourceLocation top, ResourceLocation side, ResourceLocation bottom) {
         ModelFile modelBottom = this.models().slab(id.getPath(), side, bottom, top);
-//        this.models().withExistingParent(id.getPath() + "_bottom", this.mcLoc("block/slab"))
-//                .texture("top", top)
-//                .texture("side", side)
-//                .texture("bottom", bottom);
         ModelFile modelTop = this.models().slabTop(id.getPath() + "_top", side, bottom, top);
-//                this.models().withExistingParent(id.getPath() + "_top", this.mcLoc("block/slab_top"))
-//                .texture("top", top)
-//                .texture("side", side)
-//                .texture("bottom", bottom);
         ModelFile modelFull = this.models().cubeBottomTop(id.getPath() + "_full", side, bottom, top);
         VariantBlockStateBuilder builder = this.getVariantBuilder(block);
 
@@ -62,22 +54,4 @@ public class ModBlockStateGenerator extends BlockStateProviderBase {
                     .addModels(new ConfiguredModel(type == SlabType.TOP ? modelTop : type == SlabType.BOTTOM ? modelBottom : modelFull));
         }
     }
-
-    @Override
-    public void simpleBlock(Block block) {
-        super.simpleBlock(block);
-    }
-
-    //    public ResourceLocation modLoc(String id) {
-//        return new ResourceLocation(ModConstants.MOD_ID, id);
-//    }
-//
-//    protected void basicBlock(Block block) {
-//        simpleItemBlock(block, cubeAll(block));
-//    }
-//
-//    protected void simpleItemBlock(Block block, ModelFile modelFile) {
-//        simpleBlock(block, modelFile);
-//        simpleBlockItem(block, modelFile);
-//    }
 }
