@@ -14,7 +14,6 @@ public class ModDataGen {
         if (event.includeClient()) {
             generator.addProvider(new ModBlockStateGenerator(generator, event.getExistingFileHelper()));
             generator.addProvider(new ModItemGenerator(generator, event.getExistingFileHelper()));
-//            generator.addProvider(new ModLangGenerator(generator));
         }
         if (event.includeServer()) {
             generator.addProvider(new ModRecipeGenerator(generator));
