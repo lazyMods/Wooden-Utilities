@@ -22,6 +22,6 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.1.0.26")
 
     implementation curse.mod(309927, 3457073) // Curios
-    implementation curse.mod(245211, 3402482) // The One Probe
+    implementation curse.mod(245211, 3430022) // The One Probe
     implementation curse.mod(324717, 3468298) // Jade
 }
