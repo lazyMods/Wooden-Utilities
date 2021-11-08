@@ -18,8 +18,8 @@ dependencies {
     annotationProcessor fg.deobf("io.github.noeppi_noeppi.mods:LibX:1.17.1-2.0.22")
 
     implementation fg.deobf("io.github.noeppi_noeppi.mods:LibX:1.17.1-2.0.22")
-    compileOnly fg.deobf("mezz.jei:jei-1.17.1:8.1.0.31:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.1.0.31")
+    compileOnly fg.deobf("mezz.jei:jei-1.17.1:8.2.0.32:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.2.0.32")
 
     implementation curse.mod(309927, 3457073) // Curios
     implementation curse.mod(245211, 3430022) // The One Probe
