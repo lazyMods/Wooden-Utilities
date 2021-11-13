@@ -17,7 +17,7 @@ public final class WoodenUtilities extends ModXRegistration {
     private static WoodenUtilities instance;
 
     public WoodenUtilities() {
-        super("woodenutilities", new CreativeModeTab("woodenutilities") {
+        super(new CreativeModeTab("woodenutilities") {
             @Nonnull
             @Override
             public ItemStack makeIcon() {
