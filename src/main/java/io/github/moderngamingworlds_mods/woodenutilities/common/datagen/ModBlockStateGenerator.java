@@ -13,6 +13,8 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import java.util.function.Supplier;
+
 public class ModBlockStateGenerator extends BlockStateProviderBase {
 
     public ModBlockStateGenerator(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -25,9 +27,9 @@ public class ModBlockStateGenerator extends BlockStateProviderBase {
     }
 
     @Override
-    protected void defaultState(ResourceLocation id, Block block, ModelFile model) {
+    protected void defaultState(ResourceLocation id, Block block, Supplier<ModelFile> model) {
         if (block == ModBlocks.craftingSlab) {
-            this.slabLol(id, block, this.mcLoc("block/crafting_table_top"), this.mcLoc("block/crafting_table_side"), this.mcLoc("block/oak_planks"));
+            this.slab(id, block, this.mcLoc("block/crafting_table_top"), this.mcLoc("block/crafting_table_side"), this.mcLoc("block/oak_planks"));
         } else {
             super.defaultState(id, block, model);
         }
@@ -42,7 +44,7 @@ public class ModBlockStateGenerator extends BlockStateProviderBase {
         return super.defaultModel(id, block);
     }
 
-    private void slabLol(ResourceLocation id, Block block, ResourceLocation top, ResourceLocation side, ResourceLocation bottom) {
+    private void slab(ResourceLocation id, Block block, ResourceLocation top, ResourceLocation side, ResourceLocation bottom) {
         ModelFile modelBottom = this.models().slab(id.getPath(), side, bottom, top);
         ModelFile modelTop = this.models().slabTop(id.getPath() + "_top", side, bottom, top);
         ModelFile modelFull = this.models().cubeBottomTop(id.getPath() + "_full", side, bottom, top);

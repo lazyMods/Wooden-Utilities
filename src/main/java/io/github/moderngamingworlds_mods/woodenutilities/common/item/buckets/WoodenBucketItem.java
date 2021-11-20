@@ -27,7 +27,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
 
 public class WoodenBucketItem extends BucketItem {
@@ -52,7 +51,6 @@ public class WoodenBucketItem extends BucketItem {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if (!level.isClientSide) {
             if (this.content.getAttributes().getTemperature() >= ModConfig.WoodenBucket.maxTemperature) {
@@ -77,7 +75,6 @@ public class WoodenBucketItem extends BucketItem {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     @Nonnull
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         var itemInHand = player.getItemInHand(hand);
@@ -137,7 +134,6 @@ public class WoodenBucketItem extends BucketItem {
         }
     }
 
-    @ParametersAreNonnullByDefault
     @Nonnull
     public static ItemStack getEmptySuccessItem(ItemStack stack, Player player) {
         return !player.getAbilities().instabuild ? new ItemStack(ModItems.woodenBucket) : stack;

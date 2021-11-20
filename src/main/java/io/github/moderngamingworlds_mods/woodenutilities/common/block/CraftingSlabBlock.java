@@ -25,8 +25,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Set;
 
 public class CraftingSlabBlock extends SlabBlock implements Registerable {
@@ -39,22 +37,16 @@ public class CraftingSlabBlock extends SlabBlock implements Registerable {
         this.item = new BlockItem(this, new Item.Properties().tab(WoodenUtilities.getInstance().tab));
     }
 
+    @SuppressWarnings("deprecation")
     @Override
-    @ParametersAreNonnullByDefault
-    @Nonnull
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitRes) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
-            player.openMenu(state.getMenuProvider(level, pos));
-            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
-            return InteractionResult.CONSUME;
-        }
+        player.openMenu(state.getMenuProvider(level, pos));
+        player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    @Nullable
+    @SuppressWarnings("deprecation")
     @Override
-    @ParametersAreNonnullByDefault
     public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos blockPos) {
         return new MenuProvider() {
             @Override
@@ -64,7 +56,6 @@ public class CraftingSlabBlock extends SlabBlock implements Registerable {
             }
 
             @Override
-            @ParametersAreNonnullByDefault
             public AbstractContainerMenu createMenu(int id, Inventory playerInv, Player player) {
                 return new CraftingMenu(id, playerInv, ContainerLevelAccess.create(level, blockPos)) {
                     @Override
