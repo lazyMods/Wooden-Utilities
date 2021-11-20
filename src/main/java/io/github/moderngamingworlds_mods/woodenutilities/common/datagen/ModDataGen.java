@@ -1,5 +1,6 @@
 package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -9,7 +10,7 @@ public class ModDataGen {
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent event) {
-        var generator = event.getGenerator();
+        DataGenerator generator = event.getGenerator();
 
         if (event.includeClient()) {
             generator.addProvider(new ModBlockStateGenerator(generator, event.getExistingFileHelper()));
