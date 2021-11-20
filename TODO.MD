@@ -2,7 +2,7 @@
 
 * [x] Fix gradle not picking generated resources.
 * [ ] Reimplement:
-    * [ ] JEI
+    * [X] JEI
     * [x] Jade
     * [x] TOP
 * [x] Wait on Forge to fix the bucket model loader
