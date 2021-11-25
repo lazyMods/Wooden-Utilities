@@ -52,21 +52,23 @@ public class WoodenBucketItem extends BucketItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-        if (this.getFluid().getAttributes().getTemperature() >= ModConfig.WoodenBucket.maxTemperature
-                && entity instanceof Player player) {
-            if (!this.hasCooldown) {
-                player.getCooldowns().addCooldown(this, ModConfig.WoodenBucket.destroyTime);
-                this.hasCooldown = true;
-            }
-            if (!player.getCooldowns().isOnCooldown(this)) {
-                player.getCooldowns().removeCooldown(this);
-                if (level.getBlockState(entity.blockPosition()).isAir()) {
-                    level.setBlock(entity.blockPosition(), this.getFluid().defaultFluidState().createLegacyBlock(), Block.UPDATE_ALL);
+        if (!level.isClientSide) {
+            if (this.getFluid().getAttributes().getTemperature() >= ModConfig.WoodenBucket.maxTemperature
+                    && entity instanceof Player player) {
+                if (!this.hasCooldown) {
+                    player.getCooldowns().addCooldown(this, ModConfig.WoodenBucket.destroyTime);
+                    this.hasCooldown = true;
                 }
-                stack.shrink(1);
-                player.setSecondsOnFire(ModConfig.WoodenBucket.fireTime);
-                player.broadcastBreakEvent(InteractionHand.MAIN_HAND);
-                this.hasCooldown = false;
+                if (!player.getCooldowns().isOnCooldown(this)) {
+                    player.getCooldowns().removeCooldown(this);
+                    if (level.getBlockState(entity.blockPosition()).isAir()) {
+                        level.setBlock(entity.blockPosition(), this.getFluid().defaultFluidState().createLegacyBlock(), Block.UPDATE_ALL);
+                    }
+                    stack.shrink(1);
+                    player.setSecondsOnFire(ModConfig.WoodenBucket.fireTime);
+                    player.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+                    this.hasCooldown = false;
+                }
             }
         }
     }
