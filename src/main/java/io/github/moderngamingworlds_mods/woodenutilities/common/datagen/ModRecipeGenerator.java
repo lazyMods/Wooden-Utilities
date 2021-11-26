@@ -2,6 +2,7 @@ package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
 import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.recipe.RecipeProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.Objects;
 
+@Datagen
 public class ModRecipeGenerator extends RecipeProviderBase {
 
     public ModRecipeGenerator(DataGenerator dataGenerator) {

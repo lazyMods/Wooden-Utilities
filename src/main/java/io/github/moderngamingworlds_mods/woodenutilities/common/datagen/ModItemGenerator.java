@@ -2,6 +2,7 @@ package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
 import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.ItemModelProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.loaders.DynamicBucketModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+@Datagen
 public class ModItemGenerator extends ItemModelProviderBase {
     public static final ResourceLocation DRIPPING_BUCKET = new ResourceLocation("forge", "bucket_drip");
 

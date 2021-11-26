@@ -2,6 +2,7 @@ package io.github.moderngamingworlds_mods.woodenutilities.common.datagen;
 
 import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModBlocks;
+import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.BlockStateProviderBase;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +16,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
 
+@Datagen
 public class ModBlockStateGenerator extends BlockStateProviderBase {
 
     public ModBlockStateGenerator(DataGenerator gen, ExistingFileHelper exFileHelper) {
