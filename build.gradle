@@ -22,6 +22,6 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-1.18:9.0.0.40")
 
     implementation fg.deobf("curse.maven:curios-309927:3546313")
-//    implementation fg.deobf("curse.maven:the-one-probe-245211:???")
+    implementation fg.deobf("curse.maven:the-one-probe-245211:3550084")
     implementation fg.deobf("curse.maven:jade-324717:3544015")
 }
