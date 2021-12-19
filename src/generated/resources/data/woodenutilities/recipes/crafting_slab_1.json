@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  "P"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "item": "woodenutilities:crafting_slab"
+  }
+}
