@@ -35,3 +35,13 @@
 - [] - Wooden Dark Oak Shears
 - [] - Wooden Warped Shears
 - [] - Wooden Oak Shears(Use the Current Wooden Shears for this one)
+
+## Added Different Wooden Furnace(Modded Wood Types like Biomes O Plenty)
+- [] - Wooden Acacia Furnace
+- [] - Wooden Birch Furnace
+- [] - Wooden Crimson Furnace
+- [] - Wooden Spruce Furnace
+- [] - Wooden Jungle Furnace
+- [] - Wooden Dark Oak Furnace
+- [] - Wooden Warped Furnace
+- [] - Wooden Oak Furnace(Use the Current Wooden Furnace for this one)
