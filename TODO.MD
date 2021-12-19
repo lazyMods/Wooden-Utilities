@@ -25,3 +25,13 @@
 - [ ] - Vanilla & Modded Crafting Recipes Disabled by Default
 - [ ] - Has small internal storage by default
 - [ ] - Has UUID Locking Ability to lock to the said player who has placed it down, This will allow this item to only be broken by said player who placed it down or by an op(Note even tho the owner placed it down that Anyone can still use it)
+
+## Added Different Wooden Shears(Modded Wood Types like Biomes O Plenty)
+- [] - Wooden Acacia Shears
+- [] - Wooden Birch Shears
+- [] - Wooden Crimson Shears
+- [] - Wooden Spruce Shears
+- [] - Wooden Jungle Shears
+- [] - Wooden Dark Oak Shears
+- [] - Wooden Warped Shears
+- [] - Wooden Oak Shears(Use the Current Wooden Shears for this one)
