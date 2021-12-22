@@ -45,3 +45,14 @@
 - [] - Wooden Dark Oak Furnace
 - [] - Wooden Warped Furnace
 - [] - Wooden Oak Furnace(Use the Current Wooden Furnace for this one)
+
+
+## Added Different Wooden Buckets(Modded Wood Types like Biomes O Plenty)
+- [] - Wooden Acacia Buckets
+- [] - Wooden Birch Buckets
+- [] - Wooden Crimson Buckets
+- [] - Wooden Spruce Buckets
+- [] - Wooden Jungle Buckets
+- [] - Wooden Dark Oak Buckets
+- [] - Wooden Warped Buckets
+- [] - Wooden Oak Buckets(Use the Current Wooden Buckets for this one)
