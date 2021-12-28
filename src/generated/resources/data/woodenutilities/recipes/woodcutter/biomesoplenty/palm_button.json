@@ -1,0 +1,14 @@
+{
+  "type": "woodenutilities:woodcutter_serializer",
+  "ingredient": {
+    "item": "biomesoplenty:plam_planks"
+  },
+  "result": "minecraft:plam_button",
+  "count": 1,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "biomesoplenty"
+    }
+  ]
+}
