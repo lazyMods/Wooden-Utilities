@@ -21,7 +21,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
 
-    //implementation fg.deobf("curse.maven:curios-3600023:${curios_fileid}")
+    implementation fg.deobf("curse.maven:curios-3600023:${curios_fileid}")
     //implementation fg.deobf("curse.maven:the-one-probe-245211:${top_fileid}")
     //implementation fg.deobf("curse.maven:jade-324717:${jade_fileid}")
     //implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
