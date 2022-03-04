@@ -4,19 +4,18 @@ import io.github.moderngamingworlds_mods.woodenutilities.WoodenUtilities;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModBlocks;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModItems;
 import io.github.moderngamingworlds_mods.woodenutilities.common.init.ModTags;
-import io.github.moderngamingworlds_mods.woodenutilities.common.recipes.WoodcutterRecipe;
-import io.github.moderngamingworlds_mods.woodenutilities.common.recipes.WoodcutterRecipeBuilder;
 import io.github.noeppi_noeppi.libx.annotation.data.Datagen;
 import io.github.noeppi_noeppi.libx.data.provider.recipe.RecipeProviderBase;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 import java.util.Objects;
@@ -71,5 +70,10 @@ public class ModRecipeGenerator extends RecipeProviderBase {
                 .pattern("# #")
                 .pattern(" # ")
                 .unlockedBy("has_planks", has(ItemTags.PLANKS)).save(this.consumer());
+    }
+
+    // TODO: Hopefully Forge will change this private method to protected.
+    public static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> pTag) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(pTag).build());
     }
 }
