@@ -1,7 +1,10 @@
 {
-  "itemGroup.woodenutilities": "木制实用工具(Wooden Utilities)",
+  "itemGroup.woodenutilities": "木制实用设备(Wooden Utilities)",
 
   "block.woodenutilities.crafting_slab": "台阶型工作台",
+  "block.woodenutilities.wooden_tnt": "木制TNT",
+  "block.woodenutilities.wooden_furnace": "木制熔炉",
+  "block.woodenutilities.woodcutter": "锯木机",
 
   "item.woodenutilities.acacia_plate": "金合欢板",
   "item.woodenutilities.birch_plate": "白桦木板",
@@ -16,4 +19,8 @@
   "item.woodenutilities.wooden_bucket": "木桶",
   "item.woodenutilities.wooden_diamond": "木制钻石",
   "item.woodenutilities.wooden_shears": "木制剪刀"
+  
+  "container.wooden_furnace": "木制熔炉",
+
+  "screen.woodenutilities.woodcutter": "锯木机"
 }
