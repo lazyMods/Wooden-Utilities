@@ -12,6 +12,7 @@ repositories {
     maven { url "https://dvs1.progwml6.com/files/maven/" }
     maven { url "https://maven.melanx.de/" }
     maven { url "https://cursemaven.com/" }
+    maven { url "https://api.modrinth.com/maven"}
 }
 
 dependencies {
