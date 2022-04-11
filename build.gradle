@@ -3,6 +3,7 @@ buildscript {
 }
 
 apply from: 'https://noeppi-noeppi.github.io/ModUtils/v3/mod.gradle'
+apply plugin: 'io.github.noeppi_noeppi.tools.modgradle.cursedep'
 
 repositories {
 
@@ -22,8 +23,8 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
 
-    implementation fg.deobf("curse.maven:curios-3600023:${curios_fileid}")
-    implementation fg.deobf("curse.maven:the-one-probe-245211:${top_fileid}")
-    implementation fg.deobf("curse.maven:jade-324717:${jade_fileid}")
+    curse.mod(3600023, curios_fileid as int)
+    curse.mod(245211, top_fileid as int)
+    curse.mod(324717, jade_fileid as int)
     implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 }
